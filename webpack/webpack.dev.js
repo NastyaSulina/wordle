@@ -16,6 +16,6 @@ module.exports = merge(common, {
         open: true,
         compress: true,
         port: 9000,
-        historyApiFallback: true,
+        historyApiFallback: true, // позволяет React Router самому управлять маршрутами
     },
 })

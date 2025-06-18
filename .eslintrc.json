@@ -1,8 +1,7 @@
 {
     "env": {
         "browser": true,
-        "es2021": true,
-        "jest": true
+        "es2021": true
     },
     "extends": [
         "airbnb",
@@ -23,7 +22,7 @@
         },
         "ecmaVersion": "latest",
         "sourceType": "module",
-        "project": "./tsconfig.json"
+        "project": "./tsconfig.json" // Нужно для типозависимых правил, замедляет ESLint
     },
     "rules": {
         "prettier/prettier": ["error"],

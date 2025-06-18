@@ -19,7 +19,7 @@ exports.scriptsRules = {
 exports.stylesRules = {
     test: /\.s[ac]ss$/i,
     use: [
-        MiniCssExtractPlugin.loader,
+        devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
         {
             loader: 'css-loader',
             options: {
@@ -29,9 +29,10 @@ exports.stylesRules = {
                     localIdentName: devMode ? '[path][name]__[local]' : '[contenthash]',
                     namedExport: false,
                 },
-                importLoaders: 1,
+                importLoaders: 2,
             },
         },
+        'postcss-loader',
         'sass-loader',
     ],
 }
