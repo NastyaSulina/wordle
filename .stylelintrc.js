@@ -4,6 +4,7 @@ module.exports = {
     customSyntax: 'postcss-scss',
     ignoreFiles: ['node_modules/*', 'dist/*'],
     rules: {
+        'selector-nested-pattern': '^&',
         'block-no-empty': true,
         'color-named': 'never',
         'string-quotes': 'single',
