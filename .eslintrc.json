@@ -25,7 +25,14 @@
         "project": "./tsconfig.json" // Нужно для типозависимых правил, замедляет ESLint
     },
     "rules": {
-        "prettier/prettier": ["error"],
+        "import/order": [
+            2,
+            {
+                "groups": ["external", "builtin", "index", "sibling", "parent", "internal", "type"],
+                "newlines-between": "always-and-inside-groups"
+            }
+        ],
+        "prettier/prettier": 2,
         "import/prefer-default-export": ["off"],
         "react/require-default-props": ["off"],
         "react/react-in-jsx-scope": ["off"],

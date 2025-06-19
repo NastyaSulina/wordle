@@ -1,0 +1,21 @@
+.root {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+
+    height: 100vh;
+
+    & .image {
+        width: 100%;
+        max-width: 360px;
+
+        border-radius: 24px;
+    }
+
+    & .button {
+        width: 100%;
+        max-width: 360px;
+    }
+}

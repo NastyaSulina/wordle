@@ -1,5 +1,6 @@
 import { FC } from 'react'
 import cn from 'clsx'
+
 import styles from './Button.module.scss'
 
 type Props = {
@@ -7,14 +8,12 @@ type Props = {
     ariaLabel?: string
     buttonType: ButtonType
     onClick: (e: any) => void
-    isAnimated?: boolean
     disabled?: boolean
 }
 
 export enum ButtonType {
     black = 'black',
     white = 'white',
-    gradient = 'gradient',
 }
 
 export const Button: FC<Props> = ({
@@ -22,14 +21,13 @@ export const Button: FC<Props> = ({
     text = '',
     ariaLabel = '',
     onClick,
-    isAnimated,
     disabled = false,
     ...props
 }) => {
     return (
         <button
             type='button'
-            className={cn(styles.root, styles[buttonType], isAnimated && styles.isAnimated)}
+            className={cn(styles.root, styles[buttonType])}
             aria-label={ariaLabel}
             onClick={onClick}
             disabled={disabled}

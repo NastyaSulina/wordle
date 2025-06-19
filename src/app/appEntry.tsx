@@ -1,5 +1,13 @@
-import { Button, ButtonType } from '@/shared/ui/Button'
 import { createRoot } from 'react-dom/client'
+import React from 'react'
+
+import Routing from './appRouter'
+import './styles/globalStyles.scss'
 
 const root = createRoot(document.getElementById('root') as HTMLElement)
-root.render(<Button buttonType={ButtonType.black} text='Project template' onClick={() => {}} />)
+
+root.render(
+    <React.StrictMode>
+        <Routing />
+    </React.StrictMode>,
+)

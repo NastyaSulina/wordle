@@ -3,4 +3,5 @@ declare module '*.module.scss' {
     export default styles
 }
 declare module '*.png'
+declare module '*.webp'
 declare module '*.svg'
