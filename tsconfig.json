@@ -5,7 +5,7 @@
             "@/*": ["src/*"]
         },
         "outDir": "./dist",
-        "target": "ES6",
+        "target": "ESNext",
         "module": "ESNext",
         "jsx": "react-jsx",
         "moduleResolution": "Node",

@@ -11,8 +11,18 @@ exports.htmlRules = {
 // ts-scripts
 exports.scriptsRules = {
     test: /\.tsx?$/,
-    use: 'ts-loader',
     exclude: /node_modules/,
+    use: [
+        {
+            loader: 'babel-loader',
+        },
+        {
+            loader: 'ts-loader',
+            options: {
+                transpileOnly: true,
+            },
+        },
+    ],
 }
 
 // styles scss
