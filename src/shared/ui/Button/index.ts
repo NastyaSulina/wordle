@@ -1,1 +1,1 @@
-export { Button, ButtonType } from './Button'
+export { Button, ButtonType, ButtonSize } from './Button'

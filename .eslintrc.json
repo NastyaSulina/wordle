@@ -7,7 +7,8 @@
         "airbnb",
         "airbnb-typescript",
         "plugin:import/typescript",
-        "plugin:prettier/recommended"
+        "plugin:prettier/recommended",
+        "plugin:storybook/recommended"
     ],
     "plugins": ["react", "@typescript-eslint", "prettier"],
     "settings": {
