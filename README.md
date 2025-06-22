@@ -1,26 +1,26 @@
-# Project Template by Imgrau
+# Project Template by Imgrau 🚀
 
 A template for creating new projects based on React and Webpack.
 
 ## Description
 
-A basic project structure with Webpack, React, and useful tools set up.
+Basic structure with Webpack, React, and essential tools.
 
 ## Features
 
-- Basic project structure with Webpack set up
-- Support for React and JSX
-- Includes ESLint and Prettier for code formatting
-- Supports Storybook for component development
+- Webpack setup ⚙️
+- React and JSX support 📦
+- ESLint and Prettier for formatting ✨
+- Storybook for component dev 📖
 
 ## Installation
 
-1. Clone the repository
-2. Run `npm install` to install dependencies
-3. Run `npm start` to start the project
+1. Clone the repo
+2. Run `pnpm install` to install dependencies
+3. Start the project with `pnpm start` 🎉
 
 ## Usage
 
-- Create new components and pages in the `src` folder
-- Use Storybook for component development and testing
-- Use ESLint and Prettier for code formatting
+- Create components/pages in the `src` folder
+- Use Storybook for development
+- Format code with ESLint and Prettier

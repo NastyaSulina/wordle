@@ -9,25 +9,25 @@
         "build:prod": "webpack --node-env=production --config webpack/webpack.prod.js",
         "prettier": "prettier --write .",
         "lint": "eslint --ext .js,.jsx,.ts,.tsx src",
-        "lint:fix": "npm run lint -- --fix",
+        "lint:fix": "pnpm run lint --fix",
         "stylelint": "stylelint \"src/**/*.{css,scss}\" --fix",
-        "ts:check": "npx tsc --noEmit",
+        "ts:check": "pnpm exec tsc --noEmit",
         "storybook": "storybook dev -p 6006",
-        "build-storybook": "storybook build"
+        "build:storybook": "storybook build"
     },
     "keywords": [],
     "author": "imgrau",
     "license": "ISC",
     "lint-staged": {
         "*.{js,jsx,ts,tsx}": [
-            "npm run lint:fix"
+            "pnpm run lint:fix"
         ],
         "*.{scss,css}": [
-            "npm run prettier",
-            "npm run stylelint"
+            "pnpm run prettier",
+            "pnpm run stylelint"
         ],
         "*.{json,md}": [
-            "npm run prettier"
+            "pnpm run prettier"
         ]
     },
     "devDependencies": {
