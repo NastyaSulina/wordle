@@ -13,9 +13,8 @@
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
         "resolveJsonModule": true,
-        "skipLibCheck": true
-        // "removeComments": true,
-        // "noEmit": true
+        "skipLibCheck": true,
+        "noEmit": true
     },
     "typeRoots": ["./node_modules/@types"],
     "exclude": ["node_modules", "dist"]
