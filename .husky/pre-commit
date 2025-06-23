@@ -1,2 +1,2 @@
 pnpm exec lint-staged
-git add
+git add .

@@ -1,16 +1,11 @@
-const path = require('path')
+import webpack from 'webpack'
 
-const {
-    scriptsRules,
-    imagesRules,
-    stylesRules,
-    fontsRules,
-    htmlRules,
-    cssRules,
-} = require('./rules')
-const { HtmlWebpackPlugin, MiniCssExtractPlugin } = require('./plugins')
+import path from 'path'
 
-module.exports = {
+import plugins from './plugins'
+import rules from './rules'
+
+const config: webpack.Configuration = {
     entry: path.resolve(__dirname, '../src/app/appEntry.tsx'),
     output: {
         filename: 'bundle.[contenthash].js',
@@ -26,7 +21,16 @@ module.exports = {
         },
     },
     module: {
-        rules: [scriptsRules, imagesRules, stylesRules, fontsRules, htmlRules, cssRules],
+        rules: [
+            rules.scriptsRules,
+            rules.imagesRules,
+            rules.stylesRules,
+            rules.fontsRules,
+            rules.htmlRules,
+            rules.cssRules,
+        ],
     },
-    plugins: [HtmlWebpackPlugin, MiniCssExtractPlugin],
+    plugins: [plugins.HtmlWebpackPlugin, plugins.MiniCssExtractPlugin],
 }
+
+export default config
