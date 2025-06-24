@@ -1,5 +1,6 @@
 import styles from './ErrorPage.module.scss'
 
+// TODO: Write ErrorPage component. This is template
 export const ErrorPage = () => {
     return (
         <div className={styles.root}>

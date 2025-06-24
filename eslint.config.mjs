@@ -20,15 +20,7 @@ export default typescriptEslint.config(
     prettierRecommended,
     ...storybookRecommended,
     defineConfig(
-        [
-            globalIgnores([
-                'dist/',
-                'node_modules/',
-                '**/*.stylelintrc.js',
-                '**/*.config.js',
-                '**/*.cjs',
-            ]),
-        ],
+        [globalIgnores(['dist/', 'node_modules/'])],
         {
             plugins: {
                 '@typescript-eslint': typescriptEslint.plugin,
@@ -103,6 +95,18 @@ export default typescriptEslint.config(
                 'jsx-a11y/click-events-have-key-events': 'warn',
 
                 'no-plusplus': ['off'],
+            },
+        },
+        {
+            files: ['.storybook/**/*', '**/*.stylelintrc.js', '**/*.config.js', '**/*.cjs'],
+            languageOptions: {
+                globals: {
+                    ...globals.node,
+                },
+
+                parserOptions: {
+                    project: null,
+                },
             },
         },
     ),

@@ -1,22 +1,22 @@
 @media (prefers-color-scheme: light) {
     :root {
-        --primary: #0069d1;
-        --primary-hover: #1e90ff;
-        --secondary: #b56bff;
-        --secondary-hover: #dbb8ff;
-        --danger: #d10000;
-        --danger-hover: #ff1f1f;
+        --primary: #0274e3;
+        --primary-hover: #3599fd;
+        --secondary: #dbb8ff;
+        --secondary-hover: #b56bff;
+        --danger: #e91818;
+        --danger-hover: #a30f0f;
     }
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --primary: #1e90ff;
-        --primary-hover: #0069d1;
+        --primary: #0274e3;
+        --primary-hover: #3599fd;
         --secondary: #dbb8ff;
         --secondary-hover: #b56bff;
-        --danger: #ff1f1f;
-        --danger-hover: #d10000;
+        --danger: #e91818;
+        --danger-hover: #a30f0f;
     }
 }
 
@@ -51,7 +51,7 @@
     &.disabled {
         cursor: initial;
 
-        opacity: 0.5;
+        opacity: 0.6;
     }
 
     &.outlined {

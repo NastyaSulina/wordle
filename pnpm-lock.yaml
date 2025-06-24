@@ -42,6 +42,9 @@ importers:
       '@babel/preset-typescript':
         specifier: ^7.27.1
         version: 7.27.1(@babel/core@7.27.4)
+      '@storybook/addon-a11y':
+        specifier: ^9.0.13
+        version: 9.0.13(storybook@9.0.12(@testing-library/dom@10.4.0)(prettier@3.5.3))
       '@storybook/addon-docs':
         specifier: ^9.0.12
         version: 9.0.12(@types/react@19.1.8)(storybook@9.0.12(@testing-library/dom@10.4.0)(prettier@3.5.3))
@@ -1129,6 +1132,11 @@ packages:
 
   '@rtsao/scc@1.1.0':
     resolution: {integrity: sha512-zt6OdqaDoOnJ1ZYsCYGt9YmWzDXl4vQdKTyJev62gFhRGKdx7mcT54V9KIjg+d2wi9EXsPvAPKe7i7WjfVWB8g==}
+
+  '@storybook/addon-a11y@9.0.13':
+    resolution: {integrity: sha512-MVkfZx7ZeAOMGzeRLH6Rf2NMMA5ubTRR8EzW0x0kGXIfYhZxRj+hDEZl3ggMUo+A30w+hOi4d8OGFfWm45DTeg==}
+    peerDependencies:
+      storybook: ^9.0.13
 
   '@storybook/addon-docs@9.0.12':
     resolution: {integrity: sha512-bAuFy4BWGEBIC0EAS4N+V8mHj7NZiSdDnJUSr4Al3znEVzNHLpQAMRznkga2Ok8x+gwcyBG7W47dLbDXVqLZDg==}
@@ -5810,6 +5818,12 @@ snapshots:
   '@pkgr/core@0.2.7': {}
 
   '@rtsao/scc@1.1.0': {}
+
+  '@storybook/addon-a11y@9.0.13(storybook@9.0.12(@testing-library/dom@10.4.0)(prettier@3.5.3))':
+    dependencies:
+      '@storybook/global': 5.0.0
+      axe-core: 4.10.3
+      storybook: 9.0.12(@testing-library/dom@10.4.0)(prettier@3.5.3)
 
   '@storybook/addon-docs@9.0.12(@types/react@19.1.8)(storybook@9.0.12(@testing-library/dom@10.4.0)(prettier@3.5.3))':
     dependencies:

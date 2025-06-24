@@ -3,6 +3,7 @@ import styles from './Landing.module.scss'
 import Image from '@/shared/assets/flower.webp'
 import { Button, ButtonType, ButtonSize } from '@/shared/ui/Button'
 
+// TODO: Write Landing component. This is template
 export const Landing = () => {
     return (
         <div className={styles.root}>
@@ -20,7 +21,7 @@ export const Landing = () => {
 
             <div className={styles.button}>
                 <Button
-                    buttonType={ButtonType.primary}
+                    buttonType={ButtonType.secondary}
                     onClick={() => {}}
                     size={ButtonSize.L}
                     aria-label='Click Me'
