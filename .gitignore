@@ -1,0 +1,9 @@
+/node_modules
+/dist
+
+.idea
+.vscode
+.DS_Store
+
+*storybook.log
+*storybook-static

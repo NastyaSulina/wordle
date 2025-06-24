@@ -1,0 +1,27 @@
+.root {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-4);
+
+    height: 100vh;
+
+    & .imageContainer {
+        width: 100%;
+        max-width: 360px;
+        max-height: 540px;
+
+        & .image {
+            width: 100%;
+            height: auto;
+
+            border-radius: 24px;
+        }
+    }
+
+    & .button {
+        width: 100%;
+        max-width: 360px;
+    }
+}

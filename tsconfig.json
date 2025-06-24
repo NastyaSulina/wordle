@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["src/*"]
+        },
+        "jsx": "react-jsx",
+        "strict": true,
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "resolveJsonModule": true,
+        "skipLibCheck": true,
+        "noEmit": true
+        // Эти опции не нужны для текущей сборки через Webpack + Babel
+        // "outDir": "./dist",
+        // "target": "ESNext",
+        // "module": "ESNext",
+        // "moduleResolution": "Node"
+    },
+    "typeRoots": ["./node_modules/@types"],
+    "exclude": ["node_modules", "dist"],
+
+    // Загружаем Webpack-конфиги (.ts) как CommonJS-модули
+    "ts-node": {
+        "compilerOptions": {
+            "module": "CommonJS"
+        }
+    }
+}
