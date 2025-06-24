@@ -8,7 +8,8 @@ import rules from './rules'
 const config: webpack.Configuration = {
     entry: path.resolve(__dirname, '../src/app/appEntry.tsx'),
     output: {
-        filename: 'bundle.[contenthash].js',
+        filename: '[name].[contenthash].js',
+        chunkFilename: '[name].[contenthash].js',
         path: path.resolve(__dirname, '../dist'),
         clean: true,
         assetModuleFilename: 'assets/[contenthash][ext]',

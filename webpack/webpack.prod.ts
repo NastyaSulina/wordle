@@ -13,8 +13,6 @@ const prodConfig: Configuration = merge(commonConfig as Configuration, {
             chunks: 'all',
         },
         runtimeChunk: 'single',
-        // стабильные хэши модулей для long-term caching
-        moduleIds: 'deterministic',
     },
 })
 

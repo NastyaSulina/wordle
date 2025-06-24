@@ -7,12 +7,17 @@
 
     height: 100vh;
 
-    & .image {
+    & .imageContainer {
         width: 100%;
         max-width: 360px;
-        height: auto;
+        max-height: 540px;
 
-        border-radius: 24px;
+        & .image {
+            width: 100%;
+            height: auto;
+
+            border-radius: 24px;
+        }
     }
 
     & .button {

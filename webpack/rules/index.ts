@@ -13,10 +13,20 @@ export default {
     scriptsRules: {
         test: /\.tsx?$/,
         exclude: /node_modules/,
-        use: [
-            { loader: 'babel-loader' },
-            { loader: 'ts-loader', options: { transpileOnly: true } },
-        ],
+        use: {
+            loader: 'babel-loader',
+            options: {
+                presets: [
+                    ['@babel/preset-env', { useBuiltIns: 'usage', corejs: '3' }],
+                    ['@babel/preset-react', { runtime: 'automatic' }],
+                    ['@babel/preset-typescript', { isTSX: true, allExtensions: true }],
+                ],
+                plugins: [
+                    ['@babel/plugin-transform-runtime', { corejs: false }],
+                    '@babel/plugin-syntax-dynamic-import',
+                ],
+            },
+        },
     },
 
     // styles scss
