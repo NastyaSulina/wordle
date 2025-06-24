@@ -1,7 +1,7 @@
 {
-    "name": "project-template",
+    "name": "wordle",
     "version": "1.0.0",
-    "description": "Project template",
+    "description": "wordle game",
     "private": true,
     "scripts": {
         "start": "ts-node ./node_modules/webpack-cli/bin/cli.js serve --open --config webpack/webpack.dev.ts",
