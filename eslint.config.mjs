@@ -19,81 +19,91 @@ export default typescriptEslint.config(
     importRecommended,
     prettierRecommended,
     ...storybookRecommended,
-    defineConfig([globalIgnores(['dist/', 'node_modules/'])]),
-    {
-        plugins: {
-            '@typescript-eslint': typescriptEslint.plugin,
-            'jsx-a11y': jsxA11y,
-            react,
-        },
-
-        languageOptions: {
-            globals: {
-                ...globals.browser,
+    defineConfig(
+        [
+            globalIgnores([
+                'dist/',
+                'node_modules/',
+                '**/*.stylelintrc.js',
+                '**/*.config.js',
+                '**/*.cjs',
+            ]),
+        ],
+        {
+            plugins: {
+                '@typescript-eslint': typescriptEslint.plugin,
+                'jsx-a11y': jsxA11y,
+                react,
             },
 
-            parser: typescriptEslint.parser,
-            ecmaVersion: 'latest',
-            sourceType: 'module',
-
-            parserOptions: {
-                ecmaFeatures: {
-                    jsx: true,
+            languageOptions: {
+                globals: {
+                    ...globals.browser,
                 },
 
-                project: './tsconfig.json', // Нужно для типозависимых правил, замедляет ESLint
-            },
-        },
+                parser: typescriptEslint.parser,
+                ecmaVersion: 'latest',
+                sourceType: 'module',
 
-        settings: {
-            'import/resolver': {
-                typescript: {},
-            },
-            react: {
-                version: 'detect',
-            },
-        },
+                parserOptions: {
+                    ecmaFeatures: {
+                        jsx: true,
+                    },
 
-        rules: {
-            'prettier/prettier': 2,
-            'import/order': [
-                2,
-                {
-                    groups: [
-                        'external',
-                        'builtin',
-                        'index',
-                        'sibling',
-                        'parent',
-                        'internal',
-                        'type',
-                    ],
-                    'newlines-between': 'always-and-inside-groups',
+                    project: './tsconfig.json', // Нужно для типозависимых правил, замедляет ESLint
                 },
-            ],
-            'import/no-extraneous-dependencies': ['off'],
-            'import/prefer-default-export': ['off'],
+            },
 
-            'react/require-default-props': ['off'],
-            'react/react-in-jsx-scope': ['off'],
-            'react/jsx-uses-react': ['off'],
-            'react/jsx-props-no-spreading': ['off'],
-            'react/no-unescaped-entities': ['off'],
-            'react/no-array-index-key': ['warn'],
-            'react/function-component-definition': [
-                2,
-                {
-                    namedComponents: 'arrow-function',
-                    unnamedComponents: 'arrow-function',
+            settings: {
+                'import/resolver': {
+                    typescript: {},
                 },
-            ],
+                react: {
+                    version: 'detect',
+                },
+            },
 
-            'jsx-a11y/alt-text': 'error',
-            'jsx-a11y/anchor-is-valid': 'error',
-            'jsx-a11y/label-has-associated-control': ['error', { assert: 'either' }],
-            'jsx-a11y/click-events-have-key-events': 'warn',
+            rules: {
+                'prettier/prettier': 2,
+                'import/order': [
+                    2,
+                    {
+                        groups: [
+                            'external',
+                            'builtin',
+                            'index',
+                            'sibling',
+                            'parent',
+                            'internal',
+                            'type',
+                        ],
+                        'newlines-between': 'always-and-inside-groups',
+                    },
+                ],
+                'import/no-extraneous-dependencies': ['off'],
+                'import/prefer-default-export': ['off'],
 
-            'no-plusplus': ['off'],
+                'react/require-default-props': ['off'],
+                'react/react-in-jsx-scope': ['off'],
+                'react/jsx-uses-react': ['off'],
+                'react/jsx-props-no-spreading': ['off'],
+                'react/no-unescaped-entities': ['off'],
+                'react/no-array-index-key': ['warn'],
+                'react/function-component-definition': [
+                    2,
+                    {
+                        namedComponents: 'arrow-function',
+                        unnamedComponents: 'arrow-function',
+                    },
+                ],
+
+                'jsx-a11y/alt-text': 'error',
+                'jsx-a11y/anchor-is-valid': 'error',
+                'jsx-a11y/label-has-associated-control': ['error', { assert: 'either' }],
+                'jsx-a11y/click-events-have-key-events': 'warn',
+
+                'no-plusplus': ['off'],
+            },
         },
-    },
+    ),
 )
