@@ -2,18 +2,10 @@ import cn from 'clsx'
 
 import styles from './Button.module.scss'
 
-import { Spinner } from '../Spinner'
-
 export enum ButtonSize {
     S = 'S',
     M = 'M',
     L = 'L',
-}
-
-export enum ButtonType {
-    primary = 'primary',
-    secondary = 'secondary',
-    danger = 'danger',
 }
 
 export type ButtonProps = {
@@ -21,38 +13,35 @@ export type ButtonProps = {
     size?: ButtonSize
     isDisabled?: boolean
     isLoading?: boolean
-    isRounded?: boolean
-    isOutlined?: boolean
-    buttonType: ButtonType
     onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
+    style?: React.CSSProperties
     ref?: React.Ref<HTMLButtonElement>
 } & React.HTMLAttributes<HTMLButtonElement>
 
 export const Button = ({
     children,
-    size = ButtonSize.M,
+    size,
     isDisabled = false,
     isLoading = false,
-    isRounded = false,
-    isOutlined = false,
-    buttonType = ButtonType.primary,
     onClick,
     ref,
+    style,
     ...rest
 }: ButtonProps) => {
-    const btnClass = cn(styles.root, styles[`size${size}`], styles[buttonType], {
-        [styles.disabled!]: isDisabled,
-        [styles.loading!]: isLoading,
-        [styles.rounded!]: isRounded,
-        [styles.outlined!]: isOutlined,
-    })
+    const btnClass = cn(
+        styles.root,
+        size && styles[`size${size}`],
+        {
+            [styles.disabled!]: isDisabled,
+            [styles.loading!]: isLoading,
+        },
+        'pixelated',
+    )
 
     const content = isLoading ? (
         <div className={styles.content}>
             <div className={styles.hide}>{children}</div>
-            <div className={styles.spinnerWrapper}>
-                <Spinner />
-            </div>
+            <div className={styles.loadingWrapper}>...Loading</div>
         </div>
     ) : (
         children
@@ -61,6 +50,7 @@ export const Button = ({
     const commonProps = {
         ...rest,
         onClick: isDisabled || isLoading ? undefined : onClick,
+        style,
     }
 
     return (

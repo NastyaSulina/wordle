@@ -1,0 +1,125 @@
+:root {
+    --black: #420000;
+    --white: #fff;
+
+    --primary: #ff99be;
+    --green: #b2e265;
+    --yellow: #ffdd47;
+    --gray: #cdcbcc;
+
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 20px;
+    --space-6: 24px;
+    --space-7: 28px;
+    --space-8: 32px;
+    --space-9: 36px;
+    --space-10: 40px;
+    --space-11: 44px;
+    --space-12: 48px;
+    --space-13: 52px;
+    --space-14: 56px;
+    --space-15: 60px;
+    --space-16: 64px;
+}
+
+@font-face {
+    font-family: 'Pixelify Sans';
+    font-weight: 400;
+    font-style: normal;
+    src:
+        local('Pixelify Sans'),
+        url('/public/fonts/PressStart2P-Regular.ttf') format('truetype');
+}
+
+// @font-face {
+//     font-family: 'Pixelify Sans';
+//     font-weight: 500;
+//     font-style: normal;
+//     src:
+//         local('Pixelify Sans'),
+//         url('/public/fonts/PixelifySans-Medium.ttf') format('truetype');
+// }
+
+// @font-face {
+//     font-family: 'Pixelify Sans';
+//     font-weight: 600;
+//     font-style: normal;
+//     src:
+//         local('Pixelify Sans'),
+//         url('/public/fonts/PixelifySans-SemiBold.ttf') format('truetype');
+// }
+
+// @font-face {
+//     font-family: 'Pixelify Sans';
+//     font-weight: 700;
+//     font-style: normal;
+//     src:
+//         local('Pixelify Sans'),
+//         url('/public/fonts/PixelifySans-Bold.ttf') format('truetype');
+// }
+
+body {
+    margin: 0;
+
+    font-family: 'Pixelify Sans', 'Arial', sans-serif;
+
+    background: var(--Basic-White);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    & a {
+        text-decoration: none;
+
+        color: inherit;
+    }
+}
+
+#root {
+    overflow: hidden;
+
+    width: 100vw;
+    height: 100vh;
+}
+
+.pixelated {
+    --accent: var(--primary);
+    --accent-light: color-mix(in srgb, var(--accent) 35%, #fff);
+    --accent-dark: color-mix(in hsl, hsl(270 100% 10%), var(--accent) 85%);
+
+    position: relative;
+
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 14px;
+
+    border-image-source: url("data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' width='6' height='6'><path d='M0 2h2v2H0zM2 0h2v2H2zM4 2h2v2H4zM2 4h2v2H2z' fill='%23420000'/></svg>");
+
+    border-image-slice: 2;
+    border-image-width: 1;
+    border-image-outset: 0;
+    background-color: var(--accent);
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        opacity 0.3s ease;
+
+    &::after {
+        position: absolute;
+        z-index: 0;
+        right: 0;
+        bottom: 0;
+
+        width: 100%;
+        height: 100%;
+
+        content: '';
+
+        box-shadow:
+            inset -4px -4px var(--accent-dark),
+            inset 4px 4px var(--accent-light);
+    }
+}

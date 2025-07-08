@@ -1,0 +1,78 @@
+@use '../../shared/themes/variables' as vars;
+
+.root {
+    position: relative;
+
+    overflow: auto;
+
+    height: 100vh;
+
+    background:
+        linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 130, 161, 0.5)),
+        center / cover no-repeat url(/src/shared/assets/back.png);
+
+    & .wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-4);
+
+        box-sizing: border-box;
+
+        width: 100%;
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 20px 40px 60px;
+
+        & .navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            width: 100%;
+
+            & .title {
+                margin: 10px 0;
+
+                font-size: 28px;
+
+                color: var(--black);
+            }
+
+            & .help {
+                font-size: 28px;
+
+                color: var(--black);
+            }
+        }
+
+        & .rows {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-3);
+
+            box-sizing: border-box;
+
+            width: 100%;
+            padding: 0 100px;
+        }
+
+        & .button {
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: vars.$maxWidthPhone) {
+    .root {
+        & .wrapper {
+            width: 100%;
+            max-width: 100%;
+            padding: 16px 10px 48px;
+
+            & .rows {
+                padding: 0;
+            }
+        }
+    }
+}

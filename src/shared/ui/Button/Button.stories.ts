@@ -1,6 +1,8 @@
 import { fn } from 'storybook/test'
 
-import { Button, ButtonType, ButtonSize } from './Button'
+import { Button, ButtonSize } from './Button'
+
+import { CustomCSSProperties } from '@/shared/types'
 
 import type { Meta, StoryObj } from '@storybook/react-webpack5'
 
@@ -15,10 +17,6 @@ const meta = {
         children: {
             control: 'text',
         },
-        buttonType: {
-            control: 'select',
-            options: Object.values(ButtonType),
-        },
         size: {
             control: 'select',
             options: Object.values(ButtonSize),
@@ -29,9 +27,6 @@ const meta = {
         isLoading: {
             control: 'boolean',
         },
-        isRounded: {
-            control: 'boolean',
-        },
     },
     args: { onClick: fn() },
 } satisfies Meta<typeof Button>
@@ -39,62 +34,38 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Primary: Story = {
+export const Default: Story = {
     args: {
-        children: 'Primary Button',
-        buttonType: ButtonType.primary,
-        size: ButtonSize.M,
-        isDisabled: false,
-        isLoading: false,
-        isRounded: true,
-        isOutlined: false,
-    },
-}
-
-export const Secondary: Story = {
-    args: {
-        children: 'Secondary Button',
-        buttonType: ButtonType.secondary,
-        size: ButtonSize.S,
-        isDisabled: false,
-        isLoading: false,
-        isRounded: false,
-        isOutlined: false,
-    },
-}
-
-export const Danger: Story = {
-    args: {
-        children: 'Danger Button',
-        buttonType: ButtonType.danger,
+        children: 'Default Button',
         size: ButtonSize.L,
         isDisabled: false,
         isLoading: false,
-        isRounded: false,
-        isOutlined: true,
+    },
+}
+
+export const Custom: Story = {
+    args: {
+        children: 'Custom Button',
+        isDisabled: false,
+        isLoading: false,
+        style: { '--accent': '#B4D7AC', height: '48px', width: '100px' } as CustomCSSProperties,
     },
 }
 
 export const Disabled: Story = {
     args: {
         children: 'Disabled Button',
-        buttonType: ButtonType.primary,
         size: ButtonSize.M,
         isDisabled: true,
         isLoading: false,
-        isRounded: false,
-        isOutlined: false,
     },
 }
 
 export const Loading: Story = {
     args: {
         children: 'Loading...',
-        buttonType: ButtonType.secondary,
-        size: ButtonSize.M,
+        size: ButtonSize.S,
         isDisabled: false,
         isLoading: true,
-        isRounded: true,
-        isOutlined: false,
     },
 }

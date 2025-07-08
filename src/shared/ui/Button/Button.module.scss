@@ -1,30 +1,7 @@
-@media (prefers-color-scheme: light) {
-    :root {
-        --primary: #0274e3;
-        --primary-hover: #3599fd;
-        --secondary: #dbb8ff;
-        --secondary-hover: #b56bff;
-        --danger: #e91818;
-        --danger-hover: #a30f0f;
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --primary: #0274e3;
-        --primary-hover: #3599fd;
-        --secondary: #dbb8ff;
-        --secondary-hover: #b56bff;
-        --danger: #e91818;
-        --danger-hover: #a30f0f;
-    }
-}
-
 .root {
     position: relative;
 
     display: flex;
-    flex-shrink: 0;
     justify-content: center;
     align-items: center;
 
@@ -34,28 +11,15 @@
     user-select: none;
     white-space: nowrap;
 
-    font-family: inherit;
+    font-family: 'Pixelify Sans', 'Arial', sans-serif;
     font-weight: 500;
 
-    border: none;
-
-    transition:
-        background 0.3s ease,
-        color 0.3s ease,
-        opacity 0.3s ease;
-
-    &.rounded {
-        border-radius: 100px;
-    }
+    color: var(--black);
 
     &.disabled {
         cursor: initial;
 
         opacity: 0.6;
-    }
-
-    &.outlined {
-        background: transparent;
     }
 
     &.loading {
@@ -69,7 +33,7 @@
             opacity: 0;
         }
 
-        & .spinnerWrapper {
+        & .loadingWrapper {
             position: absolute;
             top: 50%;
             left: 50%;
@@ -83,82 +47,29 @@
     height: 36px;
     padding: 0 16px;
 
-    font-size: 14px;
-
-    border-radius: var(--space-2);
+    font-size: 18px;
 }
 
 .sizeM {
     height: 48px;
     padding: 0 24px;
 
-    font-size: 14px;
-
-    border-radius: var(--space-4);
+    font-size: 24px;
 }
 
 .sizeL {
     height: 56px;
     padding: 0 36px;
 
-    font-size: 16px;
-
-    border-radius: var(--space-4);
-}
-
-.primary {
-    color: var(--white);
-    background: var(--primary);
-
-    &.outlined {
-        color: var(--primary);
-        border: 1px solid var(--primary);
-    }
-}
-
-.secondary {
-    color: var(--black);
-    background: var(--secondary);
-
-    &.outlined {
-        color: var(--secondary);
-        border: 1px solid var(--secondary);
-    }
-}
-
-.danger {
-    color: var(--white);
-    background: var(--danger);
-
-    &.outlined {
-        color: var(--danger);
-        border: 1px solid var(--danger);
-    }
+    font-size: 32px;
 }
 
 .root:not(.disabled):not(.loading) {
     &:hover {
-        &.primary {
-            background: var(--primary-hover);
-        }
-
-        &.secondary {
-            background: var(--secondary-hover);
-        }
-
-        &.danger {
-            background: var(--danger-hover);
-        }
-
-        &.outlined {
-            color: var(--white);
-            border: 1px solid transparent;
-        }
+        background: var(--accent-dark);
     }
 
     &:active {
-        box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.24);
-
         transform: scale(0.98);
     }
 }
