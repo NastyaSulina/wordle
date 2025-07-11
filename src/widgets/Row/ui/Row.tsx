@@ -4,7 +4,7 @@ import cn from 'clsx'
 
 import styles from './Row.module.scss'
 
-import { CustomCSSProperties } from '@/shared/types'
+import { CustomCSSProperties } from '@/shared/constants'
 
 export type RowProps = {
     children?: React.ReactNode

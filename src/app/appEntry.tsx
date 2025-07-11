@@ -3,8 +3,9 @@ import React from 'react'
 
 import Routing from './appRouter'
 
-import '../shared/themes/globalStyles.scss'
+import '../../i18n'
 import { Message } from '@/widgets/Message'
+import '@/shared/themes/globalStyles.scss'
 
 const root = createRoot(document.getElementById('root') as HTMLElement)
 

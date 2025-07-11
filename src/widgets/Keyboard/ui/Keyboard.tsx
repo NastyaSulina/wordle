@@ -2,11 +2,11 @@ import { observer } from 'mobx-react-lite'
 
 import styles from './Keyboard.module.scss'
 
-import { RU_KEYBOARD_LAYOUT } from '../model/keyboardLayout'
+import { RU_KEYBOARD_LAYOUT, EN_KEYBOARD_LAYOUT } from '../model/keyboardLayout'
 
 import { appStore } from '@/app/appStore'
 import { Button } from '@/shared/ui/Button'
-import { CustomCSSProperties } from '@/shared/types'
+import { CustomCSSProperties, KeyboardKeys } from '@/shared/constants'
 
 export const Keyboard = observer(() => {
     const {
@@ -16,39 +16,41 @@ export const Keyboard = observer(() => {
         handleLetterInput,
         onEnterPress,
         onBackspacePress,
+        language,
     } = appStore
+
+    const KEYBOARD_LAYOUT = language === 'ru' ? RU_KEYBOARD_LAYOUT : EN_KEYBOARD_LAYOUT
 
     return (
         <div className={styles.root}>
-            {RU_KEYBOARD_LAYOUT.map((row) => (
-                <div key={row.join('')} className={styles.row}>
+            {KEYBOARD_LAYOUT.map((row, rowIndex) => (
+                // eslint-disable-next-line react/no-array-index-key
+                <div key={rowIndex} className={styles.row}>
                     {row.map((letter) => {
-                        const isSpecial = letter === 'Enter' || letter === '←'
-                        let backgroundColor
+                        let backgroundColor = 'var(--white)'
 
-                        if (!isSpecial && correctLetters.includes(letter)) {
-                            backgroundColor = 'var(--green)'
-                        } else if (!isSpecial && presentLetters.includes(letter)) {
-                            backgroundColor = 'var(--yellow)'
-                        } else if (!isSpecial && allEnteredLetters.includes(letter)) {
-                            backgroundColor = 'var(--gray)'
-                        } else {
-                            backgroundColor = 'var(--white)'
-                        }
-
-                        const handleClick = () => {
-                            if (letter === 'Enter') {
-                                return onEnterPress()
-                            } else if (letter === '←') {
-                                return onBackspacePress()
+                        if (letter.type === 'char') {
+                            if (correctLetters.includes(letter.label)) {
+                                backgroundColor = 'var(--green)'
+                            } else if (presentLetters.includes(letter.label)) {
+                                backgroundColor = 'var(--yellow)'
+                            } else if (allEnteredLetters.includes(letter.label)) {
+                                backgroundColor = 'var(--gray)'
                             }
-
-                            return handleLetterInput(letter)
+                        }
+                        const handleClick = () => {
+                            if (letter.code === KeyboardKeys.Enter) {
+                                onEnterPress()
+                            } else if (letter.code === KeyboardKeys.Backspace) {
+                                onBackspacePress()
+                            } else {
+                                handleLetterInput(letter.label)
+                            }
                         }
 
                         return (
                             <Button
-                                key={`letter-${letter}`}
+                                key={letter.code}
                                 onClick={handleClick}
                                 style={
                                     {
@@ -58,7 +60,7 @@ export const Keyboard = observer(() => {
                                     } as CustomCSSProperties
                                 }
                             >
-                                {letter}
+                                {letter.label}
                             </Button>
                         )
                     })}

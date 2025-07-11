@@ -9,6 +9,7 @@ import styles from './Message.module.scss'
 import { messageStore } from '../model/messageStore'
 
 import { Button, ButtonSize } from '@/shared/ui/Button'
+import { KeyboardKeys } from '@/shared/constants'
 
 export const Message = observer(() => {
     const overlayRef = useRef<HTMLDivElement>(null)
@@ -21,15 +22,16 @@ export const Message = observer(() => {
 
     if (!messageStore.message) return null
 
+    // TODO: Поправить скрытие на Enter
     return ReactDOM.createPortal(
         <div
             ref={overlayRef}
             className={styles.overlay}
-            role='button'
             tabIndex={0}
+            role='button'
             onClick={() => messageStore.clear()}
             onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
+                if (e.key === KeyboardKeys.Space) {
                     messageStore.clear()
                 }
             }}

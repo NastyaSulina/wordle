@@ -2,15 +2,21 @@ import { observer } from 'mobx-react-lite'
 
 import { useEffect } from 'react'
 
+import { useTranslation } from 'react-i18next'
+
 import styles from './MainPage.module.scss'
 
 import { Keyboard } from '@/widgets/Keyboard'
 import { Row } from '@/widgets/Row'
 import { appStore } from '@/app/appStore'
 import { messageStore } from '@/widgets/Message'
+import { Button } from '@/shared/ui/Button'
+import { CustomCSSProperties } from '@/shared/constants'
 
 export const MainPage = observer(() => {
-    const { init, isLoss, isWin, currentRow, correctWord, handleKeyup, guesses } = appStore
+    const { t } = useTranslation()
+    const { init, isLoss, isWin, currentRow, correctWord, handleKeyup, guesses, language } =
+        appStore
 
     useEffect(() => {
         init()
@@ -23,13 +29,10 @@ export const MainPage = observer(() => {
 
     useEffect(() => {
         if (isWin || isLoss) {
-            messageStore.show(
-                isWin ? 'You won!' : `You lost :(\nCorrect word was: ${correctWord}`,
-                {
-                    buttonText: 'Play Again',
-                    onClose: init,
-                },
-            )
+            messageStore.show(isWin ? t('you_won') : `${t('you_lost')} ${correctWord}`, {
+                buttonText: t('play_again'),
+                onClose: init,
+            })
         }
     }, [isWin, isLoss])
 
@@ -40,9 +43,21 @@ export const MainPage = observer(() => {
             <div className={styles.wrapper}>
                 <nav className={styles.navigation}>
                     <a href='/'>
-                        <h1 className={styles.title}>Wordle</h1>
+                        <h1 className={styles.title}>{t('title')}</h1>
                     </a>
-                    <div className={styles.help}>?</div>
+                    {/* // TODO: Поправить переключение языков */}
+                    <Button
+                        style={
+                            {
+                                width: '60px',
+                                height: '48px',
+                                '--accent': 'var(--primary)',
+                            } as CustomCSSProperties
+                        }
+                        onClick={() => appStore.setLanguage(language === 'ru' ? 'en' : 'ru')}
+                    >
+                        {language}
+                    </Button>
                 </nav>
 
                 <div className={styles.rows}>

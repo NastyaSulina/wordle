@@ -9,7 +9,7 @@
 
     background:
         linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 130, 161, 0.5)),
-        center / cover no-repeat url(/src/shared/assets/back.png);
+        center / cover no-repeat url(/src/shared/assets/background.png);
 
     & .wrapper {
         display: flex;
@@ -39,7 +39,7 @@
                 color: var(--black);
             }
 
-            & .help {
+            & .language {
                 font-size: 28px;
 
                 color: var(--black);

@@ -88,9 +88,11 @@
     },
     "dependencies": {
         "globals": "^16.2.0",
+        "i18next": "^25.3.2",
         "mobx-react-lite": "^4.1.0",
         "react": "^19.1.0",
         "react-dom": "^19.1.0",
+        "react-i18next": "^15.6.0",
         "react-router": "^7.6.2",
         "react-router-dom": "^7.6.2"
     }

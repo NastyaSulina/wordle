@@ -2,7 +2,7 @@ import { fn } from 'storybook/test'
 
 import { Button, ButtonSize } from './Button'
 
-import { CustomCSSProperties } from '@/shared/types'
+import { CustomCSSProperties } from '@/shared/constants'
 
 import type { Meta, StoryObj } from '@storybook/react-webpack5'
 
