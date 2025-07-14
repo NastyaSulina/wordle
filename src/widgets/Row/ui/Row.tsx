@@ -4,7 +4,7 @@ import cn from 'clsx'
 
 import styles from './Row.module.scss'
 
-import { CustomCSSProperties } from '@/shared/constants'
+import { CustomCSSProperties } from '@/shared/types'
 
 export type RowProps = {
     children?: React.ReactNode
@@ -35,8 +35,15 @@ export const Row: React.FC<RowProps> = ({ guess = '', correctWord, isEntered }) 
                         <div
                             // eslint-disable-next-line react/no-array-index-key
                             key={i}
-                            className={cn(styles.cell, 'pixelated')}
-                            style={{ '--accent': `${backgroundColor}` } as CustomCSSProperties}
+                            className={cn(styles.cell, 'pixelated', {
+                                [styles.isEntered]: isEntered,
+                            })}
+                            style={
+                                {
+                                    '--accent': `${backgroundColor}`,
+                                    transitionDelay: `${i * 100}ms`,
+                                } as CustomCSSProperties
+                            }
                         >
                             {guess[i]}
                         </div>

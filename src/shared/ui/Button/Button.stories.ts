@@ -48,7 +48,7 @@ export const Custom: Story = {
         children: 'Custom Button',
         isDisabled: false,
         isLoading: false,
-        style: { '--accent': '#B4D7AC', height: '48px', width: '100px' } as CustomCSSProperties,
+        style: { '--accent': '#B4D7AC', height: '48px', width: '200px' } as CustomCSSProperties,
     },
 }
 

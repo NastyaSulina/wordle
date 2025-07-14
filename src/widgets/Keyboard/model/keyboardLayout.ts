@@ -31,9 +31,10 @@ export const RU_KEYBOARD_LAYOUT: Key[][] = [
         { code: 'char-д', label: 'д', type: 'char' },
         { code: 'char-ж', label: 'ж', type: 'char' },
         { code: 'char-э', label: 'э', type: 'char' },
-        { code: 'Backspace', label: '←', type: 'action' },
+        { code: 'char-ё', label: 'ё', type: 'char' },
     ],
     [
+        { code: 'Backspace', label: '←', type: 'action' },
         { code: 'char-я', label: 'я', type: 'char' },
         { code: 'char-ч', label: 'ч', type: 'char' },
         { code: 'char-с', label: 'с', type: 'char' },
@@ -70,9 +71,9 @@ export const EN_KEYBOARD_LAYOUT: Key[][] = [
         { code: 'char-j', label: 'j', type: 'char' },
         { code: 'char-k', label: 'k', type: 'char' },
         { code: 'char-l', label: 'l', type: 'char' },
-        { code: 'Backspace', label: '←', type: 'action' },
     ],
     [
+        { code: 'Backspace', label: '←', type: 'action' },
         { code: 'char-z', label: 'z', type: 'char' },
         { code: 'char-x', label: 'x', type: 'char' },
         { code: 'char-c', label: 'c', type: 'char' },

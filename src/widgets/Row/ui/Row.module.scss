@@ -19,9 +19,19 @@
         height: 56px;
 
         font-size: 32px;
-        font-weight: 500;
+        font-weight: 600;
 
         color: var(--black);
+
+        transform-style: preserve-3d;
+
+        transition:
+            transform 0.7s ease,
+            background-color 0.4s ease;
+
+        &.isEntered {
+            transform: rotateX(360deg);
+        }
     }
 }
 
@@ -33,5 +43,17 @@
 
             font-size: 32px;
         }
+    }
+}
+
+@keyframes flipInOut {
+    0% {
+        transform: rotateX(0deg);
+    }
+    50% {
+        transform: rotateX(180deg);
+    }
+    100% {
+        transform: rotateX(0deg);
     }
 }

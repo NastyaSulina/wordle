@@ -26,45 +26,18 @@
 }
 
 @font-face {
-    font-family: 'Pixelify Sans';
+    font-family: 'PressStart2P';
     font-weight: 400;
     font-style: normal;
     src:
-        local('Pixelify Sans'),
+        local('PressStart2P'),
         url('/public/fonts/PressStart2P-Regular.ttf') format('truetype');
 }
-
-// @font-face {
-//     font-family: 'Pixelify Sans';
-//     font-weight: 500;
-//     font-style: normal;
-//     src:
-//         local('Pixelify Sans'),
-//         url('/public/fonts/PixelifySans-Medium.ttf') format('truetype');
-// }
-
-// @font-face {
-//     font-family: 'Pixelify Sans';
-//     font-weight: 600;
-//     font-style: normal;
-//     src:
-//         local('Pixelify Sans'),
-//         url('/public/fonts/PixelifySans-SemiBold.ttf') format('truetype');
-// }
-
-// @font-face {
-//     font-family: 'Pixelify Sans';
-//     font-weight: 700;
-//     font-style: normal;
-//     src:
-//         local('Pixelify Sans'),
-//         url('/public/fonts/PixelifySans-Bold.ttf') format('truetype');
-// }
 
 body {
     margin: 0;
 
-    font-family: 'Pixelify Sans', 'Arial', sans-serif;
+    font-family: 'PressStart2P', 'Arial', sans-serif;
 
     background: var(--Basic-White);
     -webkit-font-smoothing: antialiased;

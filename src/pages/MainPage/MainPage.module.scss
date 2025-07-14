@@ -22,7 +22,7 @@
         width: 100%;
         max-width: 640px;
         margin: 0 auto;
-        padding: 20px 40px 60px;
+        padding: var(--space-5) var(--space-10) var(--space-15);
 
         & .navigation {
             display: flex;
@@ -32,14 +32,8 @@
             width: 100%;
 
             & .title {
-                margin: 10px 0;
+                margin: var(--space-3) 0;
 
-                font-size: 28px;
-
-                color: var(--black);
-            }
-
-            & .language {
                 font-size: 28px;
 
                 color: var(--black);
@@ -68,7 +62,7 @@
         & .wrapper {
             width: 100%;
             max-width: 100%;
-            padding: 16px 10px 48px;
+            padding: var(--space-4) var(--space-2) var(--space-12);
 
             & .rows {
                 padding: 0;
