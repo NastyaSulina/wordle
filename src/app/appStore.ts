@@ -20,6 +20,7 @@ class AppStore {
     setLanguage = (lang: LanguageCode) => {
         this.language = lang
         i18n.changeLanguage(lang)
+
         this.init()
     }
 

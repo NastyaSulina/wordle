@@ -4,7 +4,9 @@ import cn from 'clsx'
 
 import styles from './Row.module.scss'
 
-import { CustomCSSProperties } from '@/shared/types'
+import { getLetterColor } from '../model/getLetterColor'
+
+import { CustomCSSProperties, LetterColor } from '@/shared/constants'
 
 export type RowProps = {
     children?: React.ReactNode
@@ -19,17 +21,9 @@ export const Row: React.FC<RowProps> = ({ guess = '', correctWord, isEntered }) 
             {Array(5)
                 .fill('')
                 .map((_, i) => {
-                    let backgroundColor
-
-                    if (!isEntered) {
-                        backgroundColor = 'var(--white)'
-                    } else if (guess[i] === correctWord[i]) {
-                        backgroundColor = 'var(--green)'
-                    } else if (correctWord.includes(guess[i])) {
-                        backgroundColor = 'var(--yellow)'
-                    } else {
-                        backgroundColor = 'var(--gray)'
-                    }
+                    const backgroundColor = isEntered
+                        ? getLetterColor(guess, correctWord, i)
+                        : LetterColor.White
 
                     return (
                         <div

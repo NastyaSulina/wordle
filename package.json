@@ -13,7 +13,8 @@
         "stylelint": "stylelint \"src/**/*.{css,scss}\" --fix",
         "ts:check": "pnpm exec tsc --noEmit",
         "storybook": "storybook dev -p 6006",
-        "build:storybook": "storybook build"
+        "build:storybook": "storybook build",
+        "test": "jest"
     },
     "keywords": [],
     "author": "imgrau",
@@ -44,6 +45,7 @@
         "@storybook/addon-themes": "^9.0.12",
         "@storybook/addon-webpack5-compiler-swc": "^3.0.0",
         "@storybook/react-webpack5": "^9.0.12",
+        "@types/jest": "^30.0.0",
         "@types/node": "^24.0.3",
         "@types/react": "^19.1.8",
         "@types/react-dom": "^19.1.6",
@@ -64,6 +66,7 @@
         "html-loader": "^5.1.0",
         "html-webpack-plugin": "^5.6.3",
         "husky": "^9.1.7",
+        "jest": "^30.0.4",
         "lint-staged": "^16.1.2",
         "mini-css-extract-plugin": "^2.9.2",
         "mobx": "^6.13.7",
@@ -78,6 +81,7 @@
         "stylelint": "^14.16.1",
         "stylelint-config-prettier": "^9.0.5",
         "stylelint-order": "^5.0.0",
+        "ts-jest": "^29.4.0",
         "ts-node": "^10.9.2",
         "typescript": "^5.8.3",
         "typescript-eslint": "^8.34.1",
