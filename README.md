@@ -1,26 +1,14 @@
-# Project Template by Imgrau 🚀
+# Wordle by Imgrau 🚀
 
-A template for creating new projects based on React and Webpack.
+Игра в стиле Wordle с поддержкой русской и английской раскладки.
 
-## Description
+## Описание
 
-Basic structure with Webpack, React, and essential tools.
+Проект построен на основе React, MobX и Webpack, с архитектурой по принципам Feature-Sliced Design.
 
-## Features
+## Запуск 🎉
 
-- Webpack setup ⚙️
-- React and JSX support 📦
-- ESLint and Prettier for formatting ✨
-- Storybook for component dev 📖
-
-## Installation
-
-1. Clone the repo
-2. Run `pnpm install` to install dependencies
-3. Start the project with `pnpm start` 🎉
-
-## Usage
-
-- Create components/pages in the `src` folder
-- Use Storybook for development
-- Format code with ESLint and Prettier
+```
+pnpm install
+pnpm start
+```
