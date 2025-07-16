@@ -20,11 +20,16 @@ export const MainPage = observer(() => {
 
     useEffect(() => {
         init()
-        window.addEventListener('keyup', handleKeyup)
 
-        return () => {
-            window.removeEventListener('keyup', handleKeyup)
+        const handler = (e: KeyboardEvent) => {
+            if (messageStore.message) return
+
+            handleKeyup(e)
         }
+
+        document.addEventListener('keyup', handler)
+
+        return () => document.removeEventListener('keyup', handler)
     }, [])
 
     useEffect(() => {
@@ -51,7 +56,6 @@ export const MainPage = observer(() => {
                             {
                                 width: '60px',
                                 height: '48px',
-                                '--accent': 'var(--primary)',
                             } as CustomCSSProperties
                         }
                         onClick={() => appStore.setLanguage(language === 'ru' ? 'en' : 'ru')}

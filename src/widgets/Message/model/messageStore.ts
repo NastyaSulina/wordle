@@ -1,4 +1,4 @@
-import { makeAutoObservable } from 'mobx'
+import { makeAutoObservable, runInAction } from 'mobx'
 
 import { t } from 'i18next'
 
@@ -18,13 +18,17 @@ class MessageStore {
     }
 
     clear() {
-        if (this.onClose) {
-            this.onClose()
-            this.onClose = null
-        }
+        setTimeout(() => {
+            runInAction(() => {
+                if (this.onClose) {
+                    this.onClose()
+                    this.onClose = null
+                }
 
-        this.message = null
-        this.buttonText = ''
+                this.message = null
+                this.buttonText = ''
+            })
+        }, 200)
     }
 }
 

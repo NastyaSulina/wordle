@@ -101,7 +101,7 @@ class AppStore {
     }
 
     handleKeyup = (e: KeyboardEvent) => {
-        if (this.isWin || this.isLoss) return
+        if (messageStore.message || this.isWin || this.isLoss) return
 
         if (e.key === KeyboardKeys.Enter) {
             this.onEnterPress()
