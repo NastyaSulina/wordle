@@ -5,7 +5,8 @@
     --primary: #ff99be;
     --green: #b2e265;
     --yellow: #ffdd47;
-    --gray: #cdcbcc;
+    --gray: #cccccc;
+    --light-gray: #f5f5f5;
 
     --space-1: 4px;
     --space-2: 8px;
@@ -23,6 +24,15 @@
     --space-14: 56px;
     --space-15: 60px;
     --space-16: 64px;
+}
+
+:focus {
+    outline: none;
+}
+
+:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
 }
 
 @font-face {
@@ -58,9 +68,9 @@ body {
 }
 
 .pixelated {
-    --accent: var(--primary);
-    --accent-light: color-mix(in srgb, var(--accent) 35%, #fff);
-    --accent-dark: color-mix(in hsl, hsl(270 100% 10%), var(--accent) 85%);
+    --pixelated-main: var(--primary);
+    --pixelated-light: color-mix(in srgb, var(--pixelated-main) 35%, #fff);
+    --pixelated-dark: color-mix(in hsl, hsl(270 100% 10%), var(--pixelated-main) 85%);
 
     position: relative;
 
@@ -73,7 +83,7 @@ body {
     border-image-slice: 2;
     border-image-width: 1;
     border-image-outset: 0;
-    background-color: var(--accent);
+    background-color: var(--pixelated-main);
 
     transition:
         background 0.3s ease,
@@ -92,7 +102,7 @@ body {
         content: '';
 
         box-shadow:
-            inset -4px -4px var(--accent-dark),
-            inset 4px 4px var(--accent-light);
+            inset -4px -4px var(--pixelated-dark),
+            inset 4px 4px var(--pixelated-light);
     }
 }

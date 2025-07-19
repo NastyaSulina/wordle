@@ -7,8 +7,9 @@ import styles from './Message.module.scss'
 
 import { messageStore } from '../model/messageStore'
 
-import { Button, ButtonSize } from '@/shared/ui/Button'
+import { Button } from '@/shared/ui/Button'
 import { KeyboardKeys } from '@/shared/constants'
+import { appStore } from '@/app/appStore'
 
 export const Message = observer(() => {
     const buttonRef = useRef<HTMLButtonElement>(null)
@@ -28,14 +29,14 @@ export const Message = observer(() => {
     if (!messageStore.message) return null
 
     return ReactDOM.createPortal(
-        <div className={styles.overlay}>
+        <div className={cn(styles.overlay, { [styles.withConfetti]: appStore.isWin })}>
             <div
                 className={cn(styles.modal, 'pixelated')}
                 role='dialog'
                 aria-modal='true'
                 aria-labelledby='modal-title'
             >
-                <h2>{messageStore.message}</h2>
+                <p>{messageStore.message}</p>
 
                 <Button
                     ref={buttonRef}
@@ -45,7 +46,7 @@ export const Message = observer(() => {
                             messageStore.clear()
                         }
                     }}
-                    size={ButtonSize.M}
+                    isPixelated
                 >
                     {messageStore.buttonText}
                 </Button>

@@ -1,27 +1,15 @@
-@use '../../../shared/themes/variables' as vars;
-
 .root {
     width: 100%;
     max-width: 100%;
 
     & .row {
         display: flex;
-        gap: var(--space-1);
 
         max-width: 100%;
-
         padding-bottom: var(--space-1);
-    }
-}
 
-@media screen and (max-width: vars.$maxWidthPhone) {
-    .root {
-        & .row {
-            gap: 0;
-
-            & button {
-                padding: 0;
-            }
+        &.innerPadding {
+            padding: 0 var(--space-5) var(--space-1);
         }
     }
 }

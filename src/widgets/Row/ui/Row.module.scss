@@ -23,14 +23,16 @@
 
         color: var(--black);
 
-        transform-style: preserve-3d;
+        transition: background-color 0.3s ease;
 
-        transition:
-            transform 0.7s ease,
-            background-color 0.4s ease;
+        &.isRowAccepted {
+            animation:
+                FlipIn 250ms ease-in forwards,
+                FlipOut 250ms ease-in 250ms forwards;
+        }
 
-        &.isEntered {
-            transform: rotateX(360deg);
+        &.isCellFilled {
+            animation: PopIn 100ms ease-in forwards;
         }
     }
 }
@@ -43,5 +45,37 @@
 
             font-size: 32px;
         }
+    }
+}
+
+@keyframes FlipIn {
+    0% {
+        transform: rotateX(0);
+    }
+    100% {
+        transform: rotateX(-90deg);
+    }
+}
+
+@keyframes FlipOut {
+    0% {
+        transform: rotateX(-90deg);
+    }
+    100% {
+        transform: rotateX(0);
+    }
+}
+
+@keyframes PopIn {
+    from {
+        opacity: 0;
+
+        transform: scale(0.8);
+    }
+
+    40% {
+        opacity: 1;
+
+        transform: scale(1.1);
     }
 }

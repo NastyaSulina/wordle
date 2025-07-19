@@ -1,23 +1,23 @@
-import { LetterColor } from '@/shared/constants'
+import { GameColors } from '../../../shared/constants'
 
 export function getLetterColor(guess: string, correctWord: string, index: number) {
     const guessArr = guess.split('')
     const correctArr = correctWord.split('')
 
     const used = Array(correctArr.length).fill(false)
-    const colors = Array(guessArr.length).fill(LetterColor.Gray)
+    const colors = Array(guessArr.length).fill(GameColors.Gray)
 
     // Зеленые
     for (let i = 0; i < guessArr.length; i++) {
         if (guessArr[i] === correctArr[i]) {
-            colors[i] = LetterColor.Green
+            colors[i] = GameColors.Green
             used[i] = true
         }
     }
 
     // Желтые
     for (let i = 0; i < guessArr.length; i++) {
-        if (colors[i] !== LetterColor.Gray) {
+        if (colors[i] !== GameColors.Gray) {
             continue
         }
 
@@ -25,7 +25,7 @@ export function getLetterColor(guess: string, correctWord: string, index: number
 
         for (let j = 0; j < correctArr.length; j++) {
             if (!used[j] && correctArr[j] === guessLetter) {
-                colors[i] = LetterColor.Yellow
+                colors[i] = GameColors.Yellow
                 used[j] = true
 
                 break
@@ -33,5 +33,5 @@ export function getLetterColor(guess: string, correctWord: string, index: number
         }
     }
 
-    return colors[index] ?? LetterColor.Gray
+    return colors[index] ?? GameColors.Gray
 }

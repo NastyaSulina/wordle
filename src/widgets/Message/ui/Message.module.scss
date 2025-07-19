@@ -13,6 +13,12 @@
 
     background-color: rgba(0, 0, 0, 0.4);
 
+    &.withConfetti {
+        background-image: url('../../../shared/assets/confetti.svg');
+        background-repeat: repeat-x;
+        background-position: top -10px center;
+    }
+
     & .modal {
         width: 400px;
         max-width: 90vw;
@@ -20,11 +26,14 @@
 
         text-align: center;
 
-        font-size: 16px;
+        font-size: 18px;
+        font-weight: 600;
         line-height: 1.5;
 
+        color: var(--black);
+
         border-radius: 12px;
-        background-color: #fff;
+        background-color: var(--white);
         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 
         animation: fadeIn 0.2s ease-in-out;

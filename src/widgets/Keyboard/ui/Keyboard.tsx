@@ -1,12 +1,16 @@
 import { observer } from 'mobx-react-lite'
+import cn from 'clsx'
+import { t } from 'i18next'
 
 import styles from './Keyboard.module.scss'
 
 import { RU_KEYBOARD_LAYOUT, EN_KEYBOARD_LAYOUT } from '../model/keyboardLayout'
 
+import { getCharAriaLabel } from '../model/getCharAriaLabel'
+
 import { appStore } from '@/app/appStore'
-import { Button } from '@/shared/ui/Button'
-import { CustomCSSProperties, KeyboardKeys } from '@/shared/constants'
+import { Button, ButtonSize } from '@/shared/ui/Button'
+import { KeyboardKeys, GameColors } from '@/shared/constants'
 
 export const Keyboard = observer(() => {
     const {
@@ -22,20 +26,24 @@ export const Keyboard = observer(() => {
     const KEYBOARD_LAYOUT = language === 'ru' ? RU_KEYBOARD_LAYOUT : EN_KEYBOARD_LAYOUT
 
     return (
-        <div className={styles.root}>
+        <div className={styles.root} role='region' aria-label={t('keyboard')}>
             {KEYBOARD_LAYOUT.map((row, rowIndex) => (
-                // eslint-disable-next-line react/no-array-index-key
-                <div key={rowIndex} className={styles.row}>
+                <div
+                    key={rowIndex}
+                    className={cn(styles.row, {
+                        [styles.innerPadding]: language === 'en' && rowIndex === 1,
+                    })}
+                >
                     {row.map((letter) => {
-                        let backgroundColor = 'var(--white)'
+                        let backgroundColor = GameColors.LightGray
 
                         if (letter.type === 'char') {
                             if (correctLetters.includes(letter.label)) {
-                                backgroundColor = 'var(--green)'
+                                backgroundColor = GameColors.Green
                             } else if (presentLetters.includes(letter.label)) {
-                                backgroundColor = 'var(--yellow)'
+                                backgroundColor = GameColors.Yellow
                             } else if (allEnteredLetters.includes(letter.label)) {
-                                backgroundColor = 'var(--gray)'
+                                backgroundColor = GameColors.Gray
                             }
                         }
                         const handleClick = () => {
@@ -48,17 +56,18 @@ export const Keyboard = observer(() => {
                             }
                         }
 
+                        const ariaLabel =
+                            letter.type === 'char'
+                                ? getCharAriaLabel(letter.code, backgroundColor)
+                                : letter.code
+
                         return (
                             <Button
                                 key={letter.code}
+                                aria-label={ariaLabel}
+                                size={ButtonSize.S}
                                 onClick={handleClick}
-                                style={
-                                    {
-                                        flex: '1 0 5px',
-                                        height: '48px',
-                                        '--accent': `${backgroundColor}`,
-                                    } as CustomCSSProperties
-                                }
+                                backgroundColor={backgroundColor}
                             >
                                 {letter.label}
                             </Button>

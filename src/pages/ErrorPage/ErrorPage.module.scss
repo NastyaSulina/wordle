@@ -1,3 +1,5 @@
+@use '../../shared/themes/variables' as vars;
+
 .root {
     display: flex;
     flex-direction: column;
@@ -6,7 +8,30 @@
 
     height: 100vh;
 
-    & .heading {
-        font-size: 36px;
+    & .wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: var(--space-5);
+
+        max-width: 640px;
+        padding: var(--space-4);
+
+        text-align: center;
+
+        & .heading {
+            font-size: 36px;
+        }
+    }
+}
+
+@media screen and (max-width: vars.$maxWidthPhone) {
+    .root {
+        & .wrapper {
+            & .heading {
+                font-size: 24px;
+            }
+        }
     }
 }

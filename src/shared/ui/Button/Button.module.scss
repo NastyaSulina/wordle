@@ -7,16 +7,22 @@
     align-items: center;
 
     width: 100%;
+    height: 40px;
 
     cursor: pointer;
     user-select: none;
     white-space: nowrap;
 
     font-family: 'PressStart2P', 'Arial', sans-serif;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
 
     color: var(--black);
+
+    &:not(:global(.pixelated)) {
+        border: 0;
+        background-color: var(--primary);
+    }
 
     &.disabled {
         cursor: initial;
@@ -46,32 +52,35 @@
 }
 
 .sizeS {
-    height: 36px;
-    padding: 0 var(--space-4);
+    height: 40px;
 
-    font-size: 18px;
+    font-size: 14px;
 }
 
 .sizeM {
     height: 48px;
     padding: 0 var(--space-6);
 
-    font-size: 24px;
+    font-size: 20px;
 }
 
 .sizeL {
     height: 56px;
     padding: 0 var(--space-9);
 
-    font-size: 32px;
+    font-size: 28px;
 }
 
 .root:not(.disabled):not(.loading) {
     &:hover {
-        background: var(--accent-dark);
+        background-color: var(--pixelated-dark);
     }
 
     &:active {
         transform: scale(0.98);
+    }
+
+    &:not(:global(.pixelated)):hover {
+        filter: brightness(90%);
     }
 }

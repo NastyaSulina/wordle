@@ -10,13 +10,13 @@ import { Keyboard } from '@/widgets/Keyboard'
 import { Row } from '@/widgets/Row'
 import { appStore } from '@/app/appStore'
 import { messageStore } from '@/widgets/Message'
-import { Button } from '@/shared/ui/Button'
-import { CustomCSSProperties } from '@/shared/constants'
+import { Button, ButtonSize } from '@/shared/ui/Button'
+import { LanguageSelector } from '@/widgets/LanguageSelector'
+import { GameColors } from '@/shared/constants'
 
 export const MainPage = observer(() => {
     const { t } = useTranslation()
-    const { init, isLoss, isWin, currentRow, correctWord, handleKeyup, guesses, language } =
-        appStore
+    const { init, isLoss, isWin, currentRow, correctWord, handleKeyup, guesses } = appStore
 
     useEffect(() => {
         init()
@@ -41,37 +41,38 @@ export const MainPage = observer(() => {
         }
     }, [isWin, isLoss])
 
+    // TODO: убрать
     console.log('correctWord', correctWord)
 
     return (
         <div className={styles.root}>
             <div className={styles.wrapper}>
                 <nav className={styles.navigation}>
-                    <a href='/'>
-                        <h1 className={styles.title}>{t('title')}</h1>
-                    </a>
-                    {/* // TODO: Поправить переключение языков */}
-                    <Button
-                        style={
-                            {
-                                width: '60px',
-                                height: '48px',
-                            } as CustomCSSProperties
-                        }
-                        onClick={() => appStore.setLanguage(language === 'ru' ? 'en' : 'ru')}
-                    >
-                        {language}
-                    </Button>
+                    <LanguageSelector />
+
+                    <div className={styles.buttonWrapper}>
+                        <Button
+                            size={ButtonSize.S}
+                            backgroundColor={GameColors.White}
+                            onClick={() => {
+                                messageStore.show(t('about_game'))
+                            }}
+                        >
+                            {t('how_to_play')}
+                        </Button>
+                    </div>
                 </nav>
 
-                <div className={styles.rows}>
+                <h1 className={styles.title}>{t('title')}</h1>
+
+                <div className={styles.rows} aria-label={t('rows')}>
                     {guesses.map((_, i) => (
                         <Row
-                            // eslint-disable-next-line react/no-array-index-key
                             key={i}
+                            rowIndex={i}
                             guess={guesses[i]}
                             correctWord={correctWord}
-                            isEntered={i < currentRow}
+                            isRowAccepted={i < currentRow}
                         />
                     ))}
                 </div>

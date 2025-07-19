@@ -13,30 +13,38 @@ export type ButtonProps = {
     size?: ButtonSize
     isDisabled?: boolean
     isLoading?: boolean
+    isPixelated?: boolean
+    backgroundColor?: string
     onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
-    style?: React.CSSProperties
     ref?: React.Ref<HTMLButtonElement>
 } & React.HTMLAttributes<HTMLButtonElement>
 
 export const Button = ({
     children,
-    size,
+    size = ButtonSize.M,
     isDisabled = false,
     isLoading = false,
+    isPixelated = false,
+    backgroundColor,
     onClick,
     ref,
-    style,
     ...rest
 }: ButtonProps) => {
     const btnClass = cn(
         styles.root,
-        size && styles[`size${size}`],
+        styles[`size${size}`],
         {
             [styles.disabled!]: isDisabled,
             [styles.loading!]: isLoading,
         },
-        'pixelated',
+        isPixelated && 'pixelated',
     )
+
+    let btnStyle = {}
+
+    if (backgroundColor) {
+        btnStyle = isPixelated ? { '--pixelated-main': backgroundColor } : { backgroundColor }
+    }
 
     const content = isLoading ? (
         <div className={styles.content}>
@@ -50,11 +58,10 @@ export const Button = ({
     const commonProps = {
         ...rest,
         onClick: isDisabled || isLoading ? undefined : onClick,
-        style,
     }
 
     return (
-        <button type='button' ref={ref} className={btnClass} {...commonProps}>
+        <button type='button' ref={ref} className={btnClass} style={btnStyle} {...commonProps}>
             {content}
         </button>
     )
