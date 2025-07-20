@@ -13,16 +13,10 @@ import { appStore } from '@/app/appStore'
 
 export const Message = observer(() => {
     const buttonRef = useRef<HTMLButtonElement>(null)
-    const previousFocusRef = useRef<HTMLElement | null>(null)
 
     useEffect(() => {
         if (messageStore.message) {
-            previousFocusRef.current = document.activeElement as HTMLElement
             buttonRef.current?.focus()
-        }
-
-        return () => {
-            previousFocusRef.current?.focus()
         }
     }, [messageStore.message])
 

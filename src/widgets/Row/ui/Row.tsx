@@ -1,13 +1,10 @@
 import React from 'react'
-
 import cn from 'clsx'
-
 import { t } from 'i18next'
 
 import styles from './Row.module.scss'
 
 import { getLetterColor } from '../model/getLetterColor'
-
 import { getLetterAriaLabel } from '../model/getLetterAriaLabel'
 
 import { CustomCSSProperties, GameColors } from '@/shared/constants'

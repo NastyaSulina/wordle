@@ -1,0 +1,139 @@
+@use '../../themes/variables' as vars;
+
+.select {
+    position: relative;
+
+    width: 100%;
+
+    &.error .placeholder {
+        border-color: #ff0000;
+    }
+
+    // Dropdown
+    & .optionsWrapper {
+        position: absolute;
+        z-index: 10;
+        top: calc(100% + 4px);
+        right: 0;
+        left: 0;
+
+        display: flex;
+        overflow-y: auto;
+        flex-direction: column;
+
+        max-height: 240px;
+
+        border: 2px solid var(--black);
+        background: var(--white);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+        // Шторка
+        @media (max-width: vars.$maxWidthPhone) {
+            position: fixed;
+            z-index: 1000;
+            top: auto;
+            right: 0;
+            bottom: 0;
+            left: 0;
+
+            overflow-y: auto;
+
+            max-height: 50vh;
+            padding: var(--space-4) var(--space-3);
+
+            border: 0;
+            border-top-left-radius: 16px;
+            border-top-right-radius: 16px;
+            background: var(--white);
+            box-shadow: 0 -40px 40px rgba(0, 0, 0, 0.2);
+
+            transform: translateY(100%);
+            animation: slideUp 0.25s ease forwards;
+        }
+    }
+}
+
+.placeholder {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    padding: var(--space-3) var(--space-4);
+
+    cursor: pointer;
+    text-align: left;
+
+    font-family: 'PressStart2P', 'Arial', sans-serif;
+    font-size: 16px;
+
+    color: var(--black);
+    border: 0;
+    background-color: var(--white);
+
+    transition: filter 0.2s ease;
+
+    &:hover {
+        filter: brightness(90%);
+    }
+
+    & .chevron {
+        width: 20px;
+        height: 20px;
+        margin-left: 8px;
+
+        background: url('../../assets/chevron.svg') center / contain no-repeat;
+
+        transition: transform 0.3s ease;
+
+        &.chevronOpen {
+            transform: rotate(180deg);
+        }
+    }
+}
+
+.option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: var(--space-3) var(--space-4);
+
+    cursor: pointer;
+    text-align: left;
+
+    font-family: 'PressStart2P', 'Arial', sans-serif;
+    font-size: 16px;
+
+    color: var(--black);
+
+    border: none;
+    background: var(--white);
+
+    transition: background 0.2s ease;
+
+    &:hover {
+        background: var(--light-gray);
+    }
+
+    &:focus {
+        background: var(--light-gray);
+    }
+
+    & .check {
+        margin-left: var(--space-3);
+
+        font-size: 16px;
+
+        color: var(--primary);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0%);
+    }
+}

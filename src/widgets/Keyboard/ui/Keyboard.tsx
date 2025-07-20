@@ -4,13 +4,11 @@ import { t } from 'i18next'
 
 import styles from './Keyboard.module.scss'
 
-import { RU_KEYBOARD_LAYOUT, EN_KEYBOARD_LAYOUT } from '../model/keyboardLayout'
-
 import { getCharAriaLabel } from '../model/getCharAriaLabel'
 
 import { appStore } from '@/app/appStore'
 import { Button, ButtonSize } from '@/shared/ui/Button'
-import { KeyboardKeys, GameColors } from '@/shared/constants'
+import { KeyboardKeys, GameColors, SUPPORTED_LANGUAGES } from '@/shared/constants'
 
 export const Keyboard = observer(() => {
     const {
@@ -23,7 +21,7 @@ export const Keyboard = observer(() => {
         language,
     } = appStore
 
-    const KEYBOARD_LAYOUT = language === 'ru' ? RU_KEYBOARD_LAYOUT : EN_KEYBOARD_LAYOUT
+    const KEYBOARD_LAYOUT = SUPPORTED_LANGUAGES[language].keyboard
 
     return (
         <div className={styles.root} role='region' aria-label={t('keyboard')}>
