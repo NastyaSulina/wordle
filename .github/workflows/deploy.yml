@@ -1,0 +1,44 @@
+name: Deploy to GitHub Pages
+
+on:
+    push:
+        branches:
+            - main
+
+permissions:
+    contents: write
+    pages: write
+    id-token: write
+
+jobs:
+    build-and-deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Repository
+              uses: actions/checkout@v4
+
+            - name: Install pnpm
+              uses: pnpm/action-setup@v2
+              with:
+                  version: 10
+                  run_install: false
+
+            - name: Install Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: '24'
+                  cache: pnpm
+                  registry-url: https://registry.npmjs.org
+
+            - name: Install dependencies
+              run: pnpm install --frozen-lockfile
+
+            - name: Build
+              run: pnpm build:prod
+
+            - name: Deploy
+              uses: JamesIves/github-pages-deploy-action@v4
+              with:
+                  folder: dist
+                  branch: gh-pages
+                  clean: true
