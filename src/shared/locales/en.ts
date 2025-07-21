@@ -1,6 +1,6 @@
 export const en = {
     translation: {
-        title: 'Wordle: guess the hidden word in 6 attempts',
+        title: 'Wordle: guess the word in 6 attempts',
         submit: 'OK',
         play_again: 'Play again',
         you_won: 'You won!',

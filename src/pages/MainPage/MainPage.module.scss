@@ -35,7 +35,7 @@
         }
 
         & .title {
-            margin: var(--space-2) 0;
+            margin: var(--space-2);
 
             text-align: center;
 
@@ -63,14 +63,14 @@
         & .wrapper {
             width: 100%;
             max-width: 100%;
-            padding: var(--space-4) var(--space-2) var(--space-12);
+            padding: var(--space-3) var(--space-2) var(--space-10);
 
             & .rows {
                 padding: 0;
             }
 
             & .title {
-                font-size: 16px;
+                font-size: 14px;
             }
         }
     }
