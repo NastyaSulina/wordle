@@ -26,6 +26,9 @@ const devConfig: DevConfig = merge(commonConfig as WebpackConfiguration, {
         port: 9000,
         historyApiFallback: true, // позволяет React Router самому управлять маршрутами
     },
+    output: {
+        publicPath: '/',
+    },
 })
 
 export default devConfig

@@ -5,7 +5,7 @@ import { ErrorPage } from '@/pages/ErrorPage'
 
 const Routing = () => {
     return (
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.NODE_ENV === 'production' ? '/wordle' : '/'}>
             <Routes>
                 <Route path='/' element={<MainPage />} />
                 <Route path='/error' element={<ErrorPage />} />

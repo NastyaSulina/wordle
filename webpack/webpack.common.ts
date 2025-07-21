@@ -13,7 +13,6 @@ const config: webpack.Configuration = {
         path: path.resolve(__dirname, '../dist'),
         clean: true,
         assetModuleFilename: 'assets/[contenthash][ext]',
-        publicPath: '/',
     },
     resolve: {
         extensions: ['.*', '.tsx', '.ts', '.js', '.jsx'],
