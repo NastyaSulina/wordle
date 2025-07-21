@@ -38,7 +38,6 @@ export const SUPPORTED_LANGUAGES = {
                 { code: 'д', label: 'д', type: 'char' },
                 { code: 'ж', label: 'ж', type: 'char' },
                 { code: 'э', label: 'э', type: 'char' },
-                { code: 'ё', label: 'ё', type: 'char' },
             ],
             [
                 { code: 'Backspace', label: '←', type: 'action' },
