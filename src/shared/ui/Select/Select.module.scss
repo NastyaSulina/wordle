@@ -74,7 +74,9 @@
     transition: filter 0.2s ease;
 
     &:hover {
-        filter: brightness(90%);
+        @media (hover: hover) and (pointer: fine) {
+            filter: brightness(90%);
+        }
     }
 
     & .chevron {
@@ -113,7 +115,9 @@
     transition: background 0.2s ease;
 
     &:hover {
-        background: var(--light-gray);
+        @media (hover: hover) and (pointer: fine) {
+            background: var(--light-gray);
+        }
     }
 
     &:focus {
@@ -121,11 +125,9 @@
     }
 
     & .check {
+        width: 24px;
+        height: 24px;
         margin-left: var(--space-3);
-
-        font-size: 16px;
-
-        color: var(--primary);
     }
 }
 

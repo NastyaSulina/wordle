@@ -73,7 +73,9 @@
 
 .root:not(.disabled):not(.loading) {
     &:hover {
-        background-color: var(--pixelated-dark);
+        @media (hover: hover) and (pointer: fine) {
+            background-color: var(--pixelated-dark);
+        }
     }
 
     &:active {
@@ -81,6 +83,8 @@
     }
 
     &:not(:global(.pixelated)):hover {
-        filter: brightness(90%);
+        @media (hover: hover) and (pointer: fine) {
+            filter: brightness(90%);
+        }
     }
 }

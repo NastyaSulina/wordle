@@ -9,6 +9,8 @@ import { getCharAriaLabel } from '../model/getCharAriaLabel'
 import { appStore } from '@/app/appStore'
 import { Button, ButtonSize } from '@/shared/ui/Button'
 import { KeyboardKeys, GameColors, SUPPORTED_LANGUAGES } from '@/shared/constants'
+import backspaceIcon from '@/shared/assets/backspace.svg'
+import checkIcon from '@/shared/assets/check.svg'
 
 export const Keyboard = observer(() => {
     const {
@@ -59,6 +61,18 @@ export const Keyboard = observer(() => {
                                 ? getCharAriaLabel(letter.code, backgroundColor)
                                 : letter.code
 
+                        let buttonContent
+
+                        if (letter.code === 'Backspace') {
+                            buttonContent = (
+                                <img src={backspaceIcon} className={styles.icon} alt='' />
+                            )
+                        } else if (letter.code === 'Enter') {
+                            buttonContent = <img src={checkIcon} className={styles.icon} alt='' />
+                        } else {
+                            buttonContent = letter.label
+                        }
+
                         return (
                             <Button
                                 key={letter.code}
@@ -67,7 +81,7 @@ export const Keyboard = observer(() => {
                                 onClick={handleClick}
                                 backgroundColor={backgroundColor}
                             >
-                                {letter.label}
+                                {buttonContent}
                             </Button>
                         )
                     })}

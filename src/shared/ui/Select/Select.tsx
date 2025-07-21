@@ -5,6 +5,7 @@ import styles from './Select.module.scss'
 
 import { KeyboardKeys } from '@/shared/constants'
 import { useOutsideClick } from '@/shared/hooks'
+import checkIcon from '@/shared/assets/check.svg'
 
 export type Option = {
     title: string
@@ -102,9 +103,12 @@ export const Select = ({
                                 <span>{option.title}</span>
 
                                 {isSelected && (
-                                    <span className={styles.check} aria-hidden>
-                                        ✔
-                                    </span>
+                                    <img
+                                        className={styles.check}
+                                        src={checkIcon}
+                                        aria-hidden
+                                        alt=''
+                                    />
                                 )}
                             </button>
                         )

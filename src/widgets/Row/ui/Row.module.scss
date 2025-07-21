@@ -15,8 +15,8 @@
         justify-content: center;
         align-items: center;
 
-        width: 56px;
-        height: 56px;
+        width: 60px;
+        height: 60px;
 
         font-size: 32px;
         font-weight: 600;
@@ -40,10 +40,10 @@
 @media screen and (max-width: vars.$maxWidthPhone) {
     .root {
         & .cell {
-            width: 44px;
-            height: 44px;
+            width: 48px;
+            height: 48px;
 
-            font-size: 28px;
+            font-size: 32px;
         }
     }
 }
