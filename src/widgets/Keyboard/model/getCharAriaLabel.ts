@@ -9,7 +9,7 @@ export function getCharAriaLabel(char: string, color: GameColors): string {
         [GameColors.Green]: t('correct_position'),
         [GameColors.Yellow]: t('wrong_position'),
         [GameColors.Gray]: t('absent'),
-        [GameColors.White]: '',
+        [GameColors.Default]: '',
         [GameColors.LightGray]: '',
     }[color]
 

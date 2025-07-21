@@ -25,7 +25,7 @@ export const Row: React.FC<RowProps> = ({ guess = '', correctWord, isRowAccepted
                 .map((_, i) => {
                     const backgroundColor = isRowAccepted
                         ? getLetterColor(guess, correctWord, i)
-                        : GameColors.White
+                        : GameColors.Default
 
                     const letterAriaLabel = getLetterAriaLabel(
                         i,

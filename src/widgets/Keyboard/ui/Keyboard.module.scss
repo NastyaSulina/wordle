@@ -11,6 +11,22 @@
         & .icon {
             width: 24px;
             height: 24px;
+
+            background-color: var(--txt-color);
+
+            mask-repeat: no-repeat;
+            mask-position: center;
+            mask-size: contain;
+
+            background-clip: border-box;
+
+            &.backspace {
+                mask-image: url('@/shared/assets/backspace.svg');
+            }
+
+            &.check {
+                mask-image: url('@/shared/assets/check.svg');
+            }
         }
 
         &.innerPadding {

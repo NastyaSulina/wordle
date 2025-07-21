@@ -23,8 +23,8 @@
 
         max-height: 240px;
 
-        border: 2px solid var(--black);
-        background: var(--white);
+        border: 2px solid var(--txt-color);
+        background: var(--bg-color);
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 
         // Шторка
@@ -44,7 +44,7 @@
             border: 0;
             border-top-left-radius: 16px;
             border-top-right-radius: 16px;
-            background: var(--white);
+            background: var(--bg-color);
             box-shadow: 0 -40px 40px rgba(0, 0, 0, 0.2);
 
             transform: translateY(100%);
@@ -67,9 +67,9 @@
     font-family: 'PressStart2P', 'Arial', sans-serif;
     font-size: 16px;
 
-    color: var(--black);
+    color: var(--txt-color);
     border: 0;
-    background-color: var(--white);
+    background-color: var(--bg-color);
 
     transition: filter 0.2s ease;
 
@@ -82,9 +82,16 @@
     & .chevron {
         width: 20px;
         height: 20px;
-        margin-left: 8px;
+        margin-left: var(--space-3);
 
-        background: url('../../assets/chevron.svg') center / contain no-repeat;
+        background-color: var(--txt-color);
+
+        mask-repeat: no-repeat;
+        mask-position: center;
+        mask-size: contain;
+
+        background-clip: border-box;
+        mask-image: url('@/shared/assets/chevron.svg');
 
         transition: transform 0.3s ease;
 
@@ -107,10 +114,10 @@
     font-family: 'PressStart2P', 'Arial', sans-serif;
     font-size: 16px;
 
-    color: var(--black);
+    color: var(--txt-color);
 
     border: none;
-    background: var(--white);
+    background: var(--bg-color);
 
     transition: background 0.2s ease;
 
@@ -128,6 +135,15 @@
         width: 24px;
         height: 24px;
         margin-left: var(--space-3);
+
+        background-color: var(--txt-color);
+
+        mask-repeat: no-repeat;
+        mask-position: center;
+        mask-size: contain;
+
+        background-clip: border-box;
+        mask-image: url('@/shared/assets/check.svg');
     }
 }
 

@@ -16,7 +16,7 @@
     background-color: rgba(0, 0, 0, 0.4);
 
     &.withConfetti {
-        background-image: url('../../../shared/assets/confetti.svg');
+        background-image: url('@/shared/assets/confetti.svg');
         background-repeat: repeat-x;
         background-position: top -10px center;
     }
@@ -33,10 +33,10 @@
         font-weight: 600;
         line-height: 1.5;
 
-        color: var(--black);
+        color: var(--txt-color);
 
         border-radius: 12px;
-        background-color: var(--white);
+        background-color: var(--bg-color);
         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 
         animation: fadeIn 0.2s ease-in-out;

@@ -34,26 +34,26 @@ export const MainPage = observer(() => {
 
     useEffect(() => {
         if (isWin || isLoss) {
-            messageStore.show(isWin ? t('you_won') : `${t('you_lost')} ${correctWord}`, {
-                buttonText: t('play_again'),
-                onClose: init,
-            })
+            messageStore.show(
+                isWin ? t('you_won', { correctWord }) : t('you_lost', { correctWord }),
+                {
+                    buttonText: t('play_again'),
+                    onClose: init,
+                },
+            )
         }
     }, [isWin, isLoss])
-
-    // TODO: убрать
-    console.log('correctWord', correctWord)
 
     return (
         <div className={styles.root}>
             <div className={styles.wrapper}>
-                <nav className={styles.navigation}>
+                <div className={styles.menu}>
                     <LanguageSelector />
 
                     <div className={styles.buttonWrapper}>
                         <Button
                             size={ButtonSize.S}
-                            backgroundColor={GameColors.White}
+                            backgroundColor={GameColors.Default}
                             onClick={() => {
                                 messageStore.show(t('about_game'))
                             }}
@@ -61,7 +61,7 @@ export const MainPage = observer(() => {
                             {t('how_to_play')}
                         </Button>
                     </div>
-                </nav>
+                </div>
 
                 <h1 className={styles.title}>{t('title')}</h1>
 

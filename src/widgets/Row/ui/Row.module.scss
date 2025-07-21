@@ -21,7 +21,7 @@
         font-size: 32px;
         font-weight: 600;
 
-        color: var(--black);
+        color: var(--txt-color);
 
         transition: background-color 0.3s ease;
 
@@ -40,8 +40,8 @@
 @media screen and (max-width: vars.$maxWidthPhone) {
     .root {
         & .cell {
-            width: 48px;
-            height: 48px;
+            width: 52px;
+            height: 52px;
 
             font-size: 32px;
         }
