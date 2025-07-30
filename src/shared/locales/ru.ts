@@ -23,5 +23,9 @@ export const ru = {
         wrong_position: 'Неправильная позиция',
         absent: 'Отсутствует в слове',
         add: 'Добавить {{char}}',
+
+        // theme
+        light_theme: 'Светлая',
+        dark_theme: 'Темная',
     },
 }

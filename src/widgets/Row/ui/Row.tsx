@@ -1,6 +1,6 @@
 import React from 'react'
 import cn from 'clsx'
-import { t } from 'i18next'
+import { useTranslation } from 'react-i18next'
 
 import styles from './Row.module.scss'
 
@@ -18,6 +18,8 @@ export type RowProps = {
 }
 
 export const Row: React.FC<RowProps> = ({ guess = '', correctWord, isRowAccepted, rowIndex }) => {
+    const { t } = useTranslation()
+
     return (
         <div className={styles.root} aria-label={t('row_number', { index: rowIndex + 1 })}>
             {Array(5)

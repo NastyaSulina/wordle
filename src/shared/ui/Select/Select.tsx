@@ -38,7 +38,12 @@ export const Select = ({
     }
 
     const handleOptionClick = (value: string) => {
-        onChange(value)
+        const isValid = options.some((option) => option.value === value)
+
+        if (isValid) {
+            onChange(value)
+        }
+
         close()
     }
 

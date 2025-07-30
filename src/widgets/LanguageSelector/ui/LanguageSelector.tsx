@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react-lite'
 import cn from 'clsx'
-import { t } from 'i18next'
+import { useTranslation } from 'react-i18next'
 
 import styles from './LanguageSelector.module.scss'
 
@@ -9,6 +9,7 @@ import { LanguageCode, SUPPORTED_LANGUAGES } from '@/shared/constants/supportedL
 import { Select } from '@/shared/ui/Select/Select'
 
 export const LanguageSelector = observer(() => {
+    const { t } = useTranslation()
     const { language, setLanguage } = appStore
 
     const options = Object.entries(SUPPORTED_LANGUAGES).map(([code, config]) => ({

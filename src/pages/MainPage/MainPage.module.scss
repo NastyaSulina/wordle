@@ -1,4 +1,4 @@
-@use '../../shared/themes/variables' as vars;
+@use '../../shared/theme/variables' as vars;
 
 .root {
     position: relative;
@@ -27,14 +27,15 @@
 
         & .menu {
             display: flex;
-            justify-content: space-between;
+            flex-wrap: wrap;
+            justify-content: space-around;
             align-items: center;
-            gap: var(--space-3);
+            gap: var(--space-1);
 
             width: 100%;
 
-            & .buttonWrapper {
-                max-width: 200px;
+            & .about {
+                min-width: 60px;
             }
         }
 

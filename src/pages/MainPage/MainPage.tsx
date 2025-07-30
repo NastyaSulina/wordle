@@ -13,9 +13,13 @@ import { messageStore } from '@/widgets/Message'
 import { Button, ButtonSize } from '@/shared/ui/Button'
 import { LanguageSelector } from '@/widgets/LanguageSelector'
 import { GameColors } from '@/shared/constants'
+import { ThemeSelector } from '@/widgets/ThemeSelector'
+import { useIsMobile } from '@/shared/hooks'
 
 export const MainPage = observer(() => {
     const { t } = useTranslation()
+    const isMobile = useIsMobile()
+
     const { init, isLoss, isWin, currentRow, correctWord, handleKeyup, guesses } = appStore
 
     useEffect(() => {
@@ -49,8 +53,9 @@ export const MainPage = observer(() => {
             <div className={styles.wrapper}>
                 <div className={styles.menu}>
                     <LanguageSelector />
+                    <ThemeSelector />
 
-                    <div className={styles.buttonWrapper}>
+                    <div className={styles.about}>
                         <Button
                             size={ButtonSize.S}
                             backgroundColor={GameColors.Default}
@@ -58,7 +63,7 @@ export const MainPage = observer(() => {
                                 messageStore.show(t('about_game'))
                             }}
                         >
-                            {t('how_to_play')}
+                            {isMobile ? '?' : t('how_to_play')}
                         </Button>
                     </div>
                 </div>

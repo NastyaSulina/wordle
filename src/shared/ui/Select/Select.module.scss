@@ -1,4 +1,4 @@
-@use '../../themes/variables' as vars;
+@use '../../theme/variables' as vars;
 
 .select {
     position: relative;
@@ -24,7 +24,7 @@
         max-height: 240px;
 
         border: 2px solid var(--txt-color);
-        background: var(--bg-color);
+        background: var(--select-bg-color);
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 
         // Шторка
@@ -44,7 +44,6 @@
             border: 0;
             border-top-left-radius: 16px;
             border-top-right-radius: 16px;
-            background: var(--bg-color);
             box-shadow: 0 -40px 40px rgba(0, 0, 0, 0.2);
 
             transform: translateY(100%);
@@ -65,7 +64,7 @@
     text-align: left;
 
     font-family: 'PressStart2P', 'Arial', sans-serif;
-    font-size: 16px;
+    font-size: 14px;
 
     color: var(--txt-color);
     border: 0;
@@ -117,7 +116,7 @@
     color: var(--txt-color);
 
     border: none;
-    background: var(--bg-color);
+    background: var(--select-bg-color);
 
     transition: background 0.2s ease;
 

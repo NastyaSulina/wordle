@@ -1,4 +1,4 @@
-@use '../../../shared/themes/variables' as vars;
+@use '../../../shared/theme/variables' as vars;
 
 .root {
     position: relative;
@@ -43,7 +43,7 @@
             width: 52px;
             height: 52px;
 
-            font-size: 32px;
+            font-size: 28px;
         }
     }
 }

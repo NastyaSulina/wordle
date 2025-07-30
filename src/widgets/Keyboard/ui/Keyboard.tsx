@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react-lite'
 import cn from 'clsx'
-import { t } from 'i18next'
+import { useTranslation } from 'react-i18next'
 
 import styles from './Keyboard.module.scss'
 
@@ -11,6 +11,7 @@ import { Button, ButtonSize } from '@/shared/ui/Button'
 import { KeyboardKeys, GameColors, SUPPORTED_LANGUAGES } from '@/shared/constants'
 
 export const Keyboard = observer(() => {
+    const { t } = useTranslation()
     const {
         allEnteredLetters,
         correctLetters,

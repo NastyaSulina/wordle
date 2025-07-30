@@ -23,5 +23,9 @@ export const en = {
         wrong_position: 'Wrong position',
         absent: 'Absent',
         add: 'Add {{char}}',
+
+        // theme
+        light_theme: 'Light',
+        dark_theme: 'Dark',
     },
 }
