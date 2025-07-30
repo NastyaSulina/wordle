@@ -8,6 +8,8 @@
 
     height: 100vh;
 
+    background-color: var(--bg-color);
+
     & .wrapper {
         display: flex;
         flex-direction: column;
@@ -22,6 +24,8 @@
 
         & .heading {
             font-size: 36px;
+
+            color: var(--txt-color);
         }
     }
 }
