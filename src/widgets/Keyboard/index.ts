@@ -1,1 +1,1 @@
-export { Keyboard } from './ui/Keyboard'
+export { Keyboard } from './Keyboard'

@@ -2,13 +2,27 @@ import { observer } from 'mobx-react-lite'
 import cn from 'clsx'
 import { useTranslation } from 'react-i18next'
 
-import styles from './Keyboard.module.scss'
+import { t } from 'i18next'
 
-import { getCharAriaLabel } from '../model/getCharAriaLabel'
+import styles from './Keyboard.module.scss'
 
 import { appStore } from '@/app/appStore'
 import { Button, ButtonSize } from '@/shared/ui/Button'
 import { KeyboardKeys, GameColors, SUPPORTED_LANGUAGES } from '@/shared/constants'
+
+function getCharAriaLabel(char: string, color: GameColors): string {
+    const base = t('add', { char: char })
+
+    const status = {
+        [GameColors.Green]: t('correct_position'),
+        [GameColors.Yellow]: t('wrong_position'),
+        [GameColors.Gray]: t('absent'),
+        [GameColors.Default]: '',
+        [GameColors.LightGray]: '',
+    }[color]
+
+    return status ? `${base} — ${status}` : base
+}
 
 export const Keyboard = observer(() => {
     const { t } = useTranslation()

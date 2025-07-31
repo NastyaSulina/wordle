@@ -6,7 +6,7 @@ import Routing from './appRouter'
 
 import '../../i18n'
 
-import { Message } from '@/widgets/Message'
+import { Message } from '@/features/Message'
 import '@/shared/theme/globalStyles.scss'
 import { ThemeProvider } from '@/shared/theme/ThemeContext'
 

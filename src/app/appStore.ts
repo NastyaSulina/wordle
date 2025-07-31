@@ -1,7 +1,7 @@
 import { makeAutoObservable } from 'mobx'
 import { t } from 'i18next'
 
-import { messageStore } from '../widgets/Message'
+import { messageStore } from '../features/Message'
 
 import i18n from '../../i18n'
 
