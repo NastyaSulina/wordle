@@ -106,7 +106,11 @@ export const Select = ({
                             >
                                 <span>{option.title}</span>
 
-                                {isSelected && <img className={styles.check} aria-hidden alt='' />}
+                                <img
+                                    className={cn(styles.check, isSelected && styles.active)}
+                                    aria-hidden
+                                    alt=''
+                                />
                             </button>
                         )
                     })}

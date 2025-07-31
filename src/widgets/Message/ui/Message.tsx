@@ -8,7 +8,7 @@ import styles from './Message.module.scss'
 import { messageStore } from '../model/messageStore'
 
 import { Button } from '@/shared/ui/Button'
-import { KeyboardKeys } from '@/shared/constants'
+import { GameColors, KeyboardKeys } from '@/shared/constants'
 import { appStore } from '@/app/appStore'
 
 export const Message = observer(() => {
@@ -35,6 +35,7 @@ export const Message = observer(() => {
                 <Button
                     ref={buttonRef}
                     onClick={() => messageStore.clear()}
+                    backgroundColor={appStore.isWin ? GameColors.Green : undefined}
                     onKeyDown={(e) => {
                         if (e.key === KeyboardKeys.Enter || e.key === KeyboardKeys.Space) {
                             messageStore.clear()

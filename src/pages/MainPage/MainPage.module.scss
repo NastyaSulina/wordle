@@ -28,7 +28,7 @@
         & .menu {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-around;
+            justify-content: space-between;
             align-items: center;
             gap: var(--space-1);
 
@@ -67,7 +67,11 @@
     .root {
         & .wrapper {
             width: 100%;
-            padding: var(--space-3) var(--space-2) var(--space-10);
+            padding: var(--space-4) var(--space-2) var(--space-10);
+
+            & .menu {
+                justify-content: space-around;
+            }
 
             & .rows {
                 padding: 0;

@@ -39,7 +39,9 @@ export const MainPage = observer(() => {
     useEffect(() => {
         if (isWin || isLoss) {
             messageStore.show(
-                isWin ? t('you_won', { correctWord }) : t('you_lost', { correctWord }),
+                isWin
+                    ? t('you_won', { correctWord, count: currentRow })
+                    : t('you_lost', { correctWord }),
                 {
                     buttonText: t('play_again'),
                     onClose: init,

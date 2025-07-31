@@ -11,7 +11,7 @@ class AppStore {
     correctWord: string = ''
     guesses: string[] = []
     currentRow: number = 0
-    language: LanguageCode = LanguageCode.ru
+    language: LanguageCode = i18n.language as LanguageCode
 
     constructor() {
         makeAutoObservable(this)
