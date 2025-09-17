@@ -1,7 +1,6 @@
 :root {
     --black: #111;
     --white: #fff;
-
     --space-1: 4px;
     --space-2: 8px;
     --space-3: 12px;
@@ -23,9 +22,9 @@
 body {
     margin: 0;
 
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
 
-    background: var(--Basic-White);
+    background: var(--space-16);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 

@@ -1,18 +1,40 @@
-module.exports = {
-    plugins: ['stylelint-order'],
-    extends: ['stylelint-config-prettier'],
+/** @type {import('stylelint').Config} */
+export default {
+    extends: ['stylelint-config-standard-scss'],
+    plugins: ['@stylistic/stylelint-plugin', 'stylelint-order'],
     customSyntax: 'postcss-scss',
     ignoreFiles: ['node_modules/*', 'dist/*'],
     rules: {
-        'selector-nested-pattern': '^&',
+        '@stylistic/string-quotes': 'single',
+
         'block-no-empty': true,
         'color-named': 'never',
-        'string-quotes': 'single',
+        'selector-nested-pattern': '^&',
+        'selector-class-pattern': [
+            '^[a-z][a-zA-Z0-9]*$',
+            { message: 'Expected class selector to be camelCase' },
+        ],
+
+        'declaration-empty-line-before': [
+            'always',
+            {
+                except: ['first-nested'],
+                ignore: ['after-declaration', 'after-comment', 'inside-single-line-block'],
+            },
+        ],
+        'at-rule-empty-line-before': [
+            'always',
+            {
+                ignore: ['first-nested', 'blockless-after-same-name-blockless', 'after-comment'],
+            },
+        ],
+
         'order/order': ['custom-properties', 'declarations', 'rules', 'at-rules'],
         'order/properties-order': [
             // Positioning
             {
                 emptyLineBefore: 'always',
+                noEmptyLineBetween: true,
                 properties: [
                     'position',
                     'z-index',
@@ -28,6 +50,7 @@ module.exports = {
             // Display / Flex / Grid / Layout
             {
                 emptyLineBefore: 'always',
+                noEmptyLineBetween: true,
                 properties: [
                     'display',
                     'visibility',
@@ -80,6 +103,7 @@ module.exports = {
             // Sizing / Spacing
             {
                 emptyLineBefore: 'always',
+                noEmptyLineBetween: true,
                 properties: [
                     '-webkit-box-sizing',
                     '-moz-box-sizing',
@@ -108,6 +132,7 @@ module.exports = {
             // Table / List
             {
                 emptyLineBefore: 'always',
+                noEmptyLineBetween: true,
                 properties: [
                     'table-layout',
                     'empty-cells',
@@ -123,6 +148,7 @@ module.exports = {
             // Typography
             {
                 emptyLineBefore: 'always',
+                noEmptyLineBetween: true,
                 properties: [
                     'content',
                     'quotes',
@@ -183,6 +209,7 @@ module.exports = {
             // Font
             {
                 emptyLineBefore: 'always',
+                noEmptyLineBetween: true,
                 properties: [
                     'font',
                     'font-family',
@@ -208,6 +235,7 @@ module.exports = {
             // Color / Border / Background
             {
                 emptyLineBefore: 'always',
+                noEmptyLineBetween: true,
                 properties: [
                     'opacity',
                     'filter:progid:DXImageTransform.Microsoft.Alpha(Opacity',
@@ -311,6 +339,7 @@ module.exports = {
             // Animation / Transform
             {
                 emptyLineBefore: 'always',
+                noEmptyLineBetween: true,
                 properties: [
                     '-webkit-transition',
                     '-moz-transition',

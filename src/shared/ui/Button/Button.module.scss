@@ -136,7 +136,7 @@
     }
 }
 
-.root:not(.disabled):not(.loading) {
+.root:not(.disabled, .loading) {
     &:hover {
         &.primary {
             background: var(--primary-hover);
@@ -157,7 +157,7 @@
     }
 
     &:active {
-        box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.24);
+        box-shadow: 1px 1px 8px 1px rgb(0 0 0 / 24%);
 
         transform: scale(0.98);
     }
