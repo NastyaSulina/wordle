@@ -1,5 +1,5 @@
 import type { Preview } from '@storybook/react-webpack5'
-import '../src/app/styles/globalStyles.scss'
+import '../src/shared/theme/globalStyles.scss'
 
 const preview: Preview = {
     parameters: {

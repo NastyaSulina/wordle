@@ -1,10 +1,10 @@
-import styles from './Landing.module.scss'
+import styles from './MainPage.module.scss'
 
 import Image from '@/shared/assets/flower.webp'
 import { Button, ButtonType, ButtonSize } from '@/shared/ui/Button'
 
-// TODO: Write Landing component. This is template
-export const Landing = () => {
+// TODO: Write MainPage component. This is template
+export const MainPage = () => {
     return (
         <div className={styles.root}>
             <div className={styles.imageContainer}>

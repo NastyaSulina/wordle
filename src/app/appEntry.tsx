@@ -1,13 +1,16 @@
 import { createRoot } from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
 import React from 'react'
 
 import Routing from './appRouter'
-import './styles/globalStyles.scss'
+import '@/shared/theme/globalStyles.scss'
 
 const root = createRoot(document.getElementById('root') as HTMLElement)
 
 root.render(
     <React.StrictMode>
-        <Routing />
+        <BrowserRouter>
+            <Routing />
+        </BrowserRouter>
     </React.StrictMode>,
 )
