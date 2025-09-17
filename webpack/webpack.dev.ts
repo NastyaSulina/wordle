@@ -2,7 +2,7 @@ import { merge } from 'webpack-merge'
 
 import path from 'path'
 
-import plugins from './plugins'
+import plugins from './plugins/index'
 import commonConfig from './webpack.common'
 
 import type { Configuration as WebpackConfiguration } from 'webpack'
@@ -24,7 +24,7 @@ const devConfig: DevConfig = merge(commonConfig as WebpackConfiguration, {
         open: true,
         compress: true,
         port: 9000,
-        historyApiFallback: true, // позволяет React Router самому управлять маршрутами
+        historyApiFallback: true,
     },
     output: {
         publicPath: '/',

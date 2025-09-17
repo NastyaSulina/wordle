@@ -17,14 +17,11 @@ export default {
             loader: 'babel-loader',
             options: {
                 presets: [
-                    ['@babel/preset-env', { useBuiltIns: 'usage', corejs: '3' }],
+                    ['@babel/preset-env', { useBuiltIns: 'usage', corejs: 3 }],
                     ['@babel/preset-react', { runtime: 'automatic' }],
-                    ['@babel/preset-typescript', { isTSX: true, allExtensions: true }],
+                    ['@babel/preset-typescript'],
                 ],
-                plugins: [
-                    ['@babel/plugin-transform-runtime', { corejs: false }],
-                    '@babel/plugin-syntax-dynamic-import',
-                ],
+                plugins: [['@babel/plugin-transform-runtime', { corejs: false }]],
             },
         },
     },

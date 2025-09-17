@@ -4,9 +4,9 @@
     "description": "wordle game",
     "private": true,
     "scripts": {
-        "start": "ts-node ./node_modules/webpack-cli/bin/cli.js serve --open --config webpack/webpack.dev.ts",
-        "build:dev": "NODE_ENV=development ts-node ./node_modules/webpack-cli/bin/cli.js --config webpack/webpack.dev.ts",
-        "build:prod": "NODE_ENV=production ts-node ./node_modules/webpack-cli/bin/cli.js --config webpack/webpack.prod.ts",
+        "start": "cross-env TS_NODE_PROJECT=webpack/tsconfig.json NODE_OPTIONS=\"-r ts-node/register/transpile-only\" webpack serve --config webpack/webpack.dev.ts",
+        "build:dev": "cross-env TS_NODE_PROJECT=webpack/tsconfig.json NODE_OPTIONS=\"-r ts-node/register/transpile-only\" webpack --config webpack/webpack.dev.ts",
+        "build:prod": "cross-env TS_NODE_PROJECT=webpack/tsconfig.json NODE_OPTIONS=\"-r ts-node/register/transpile-only\" webpack --config webpack/webpack.prod.ts",
         "prettier": "prettier --write .",
         "lint": "eslint --ext .js,.jsx,.ts,.tsx src",
         "lint:fix": "pnpm run lint --fix",
@@ -33,7 +33,6 @@
     },
     "devDependencies": {
         "@babel/core": "^7.27.4",
-        "@babel/plugin-syntax-dynamic-import": "^7.8.3",
         "@babel/plugin-transform-runtime": "^7.27.4",
         "@babel/preset-env": "^7.27.2",
         "@babel/preset-react": "^7.27.1",

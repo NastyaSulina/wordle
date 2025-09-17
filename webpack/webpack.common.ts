@@ -2,8 +2,8 @@ import webpack from 'webpack'
 
 import path from 'path'
 
-import plugins from './plugins'
-import rules from './rules'
+import plugins from './plugins/index'
+import rules from './rules/index'
 
 const config: webpack.Configuration = {
     entry: path.resolve(__dirname, '../src/app/appEntry.tsx'),
