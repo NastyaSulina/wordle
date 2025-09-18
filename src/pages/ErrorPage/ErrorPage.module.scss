@@ -30,7 +30,7 @@
     }
 }
 
-@media screen and (max-width: vars.$maxWidthPhone) {
+@media screen and (max-width: vars.$max-width-phone) {
     .root {
         & .wrapper {
             & .heading {

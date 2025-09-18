@@ -17,16 +17,16 @@
 
     &.flipReveal {
         animation:
-            FlipIn 250ms ease-in forwards,
-            FlipOut 250ms ease-in 250ms forwards;
+            flipIn 250ms ease-in forwards,
+            flipOut 250ms ease-in 250ms forwards;
     }
 
     &.popInEffect {
-        animation: PopIn 100ms ease-in forwards;
+        animation: popIn 100ms ease-in forwards;
     }
 }
 
-@media screen and (max-width: vars.$maxWidthPhone) {
+@media screen and (max-width: vars.$max-width-phone) {
     .root {
         width: 52px;
         height: 52px;
@@ -35,26 +35,28 @@
     }
 }
 
-@keyframes FlipIn {
+@keyframes flipIn {
     0% {
         transform: rotateX(0);
     }
+
     100% {
         transform: rotateX(-90deg);
     }
 }
 
-@keyframes FlipOut {
+@keyframes flipOut {
     0% {
         transform: rotateX(-90deg);
     }
+
     100% {
         transform: rotateX(0);
     }
 }
 
-@keyframes PopIn {
-    from {
+@keyframes popIn {
+    0% {
         opacity: 0;
 
         transform: scale(0.8);

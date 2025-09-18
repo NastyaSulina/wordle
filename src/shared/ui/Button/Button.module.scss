@@ -13,13 +13,13 @@
     user-select: none;
     white-space: nowrap;
 
-    font-family: 'PressStart2P', 'Arial', sans-serif;
+    font-family: 'PressStart2P', Arial, sans-serif;
     font-size: 14px;
     font-weight: 500;
 
     color: var(--txt-color);
 
-    &:not(:global(.pixelated)) {
+    &:not([class~='pixelated']) {
         border: 0;
         background-color: var(--primary);
     }
@@ -71,7 +71,7 @@
     font-size: 28px;
 }
 
-.root:not(.disabled):not(.loading) {
+.root:not(.disabled, .loading) {
     &:hover {
         @media (hover: hover) and (pointer: fine) {
             background-color: var(--pixelated-dark);
@@ -82,7 +82,7 @@
         transform: scale(0.98);
     }
 
-    &:not(:global(.pixelated)):hover {
+    &:not([class~='pixelated']):hover {
         @media (hover: hover) and (pointer: fine) {
             filter: brightness(90%);
         }

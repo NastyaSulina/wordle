@@ -21,7 +21,6 @@
         width: 100%;
         max-width: 640px;
         height: 100%;
-
         margin: 0 auto;
         padding: var(--space-3) var(--space-10) var(--space-6);
 
@@ -56,14 +55,13 @@
             gap: var(--space-2);
 
             box-sizing: border-box;
-
             width: 100%;
             padding: 0 100px;
         }
     }
 }
 
-@media screen and (max-width: vars.$maxWidthPhone) {
+@media screen and (max-width: vars.$max-width-phone) {
     .root {
         & .wrapper {
             width: 100%;

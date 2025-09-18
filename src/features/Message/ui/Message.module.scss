@@ -13,7 +13,7 @@
     width: 100vw;
     height: 100vh;
 
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgb(0 0 0 / 40%);
 
     &.withConfetti {
         background-image: url('@/shared/assets/confetti.svg');
@@ -35,16 +35,15 @@
         line-height: 1.5;
 
         color: var(--txt-color);
-
         border-radius: 12px;
         background-color: var(--bg-color);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 8px 24px rgb(0 0 0 / 20%);
 
         animation: fadeIn 0.2s ease-in-out;
     }
 }
 
-@media screen and (max-width: vars.$maxWidthPhone) {
+@media screen and (max-width: vars.$max-width-phone) {
     .overlay {
         & .modal {
             font-size: 15px;
@@ -58,6 +57,7 @@
 
         transform: scale(0.95);
     }
+
     to {
         opacity: 1;
 
