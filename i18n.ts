@@ -15,12 +15,16 @@ i18n.use(LanguageDetector)
             en,
             ru,
         },
+        fallbackLng: 'ru',
+        supportedLngs: ['en', 'ru'],
+        nonExplicitSupportedLngs: true,
+        load: 'languageOnly',
         detection: {
             order: ['localStorage', 'navigator'],
             caches: ['localStorage'],
             lookupLocalStorage: 'user-language',
+            convertDetectedLanguage: (lng) => lng?.split('-')[0],
         },
-        fallbackLng: 'ru',
         interpolation: {
             escapeValue: false,
         },
