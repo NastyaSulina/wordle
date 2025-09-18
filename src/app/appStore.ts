@@ -2,7 +2,6 @@ import { makeAutoObservable } from 'mobx'
 import { t } from 'i18next'
 
 import { messageStore } from '../features/Message'
-
 import i18n from '../../i18n'
 
 import { KeyboardKeys, LanguageCode, SUPPORTED_LANGUAGES } from '@/shared/constants'
@@ -12,6 +11,7 @@ class AppStore {
     guesses: string[] = []
     currentRow: number = 0
     language: LanguageCode = i18n.language as LanguageCode
+    currentDraft: string = ''
 
     constructor() {
         makeAutoObservable(this)
@@ -64,13 +64,16 @@ class AppStore {
         this.correctWord = words[Math.floor(Math.random() * words.length)]
         this.guesses = new Array(6).fill('')
         this.currentRow = 0
+        this.currentDraft = ''
     }
 
     submitGuess = () => {
-        const guess = this.guesses[this.currentRow]
+        const guess = this.currentDraft
 
         if (guess.length === 5 && this.words.includes(guess)) {
+            this.guesses[this.currentRow] = guess
             this.currentRow += 1
+            this.currentDraft = ''
         } else if (guess.length === 5) {
             messageStore.show(t('invalid_word'), {
                 buttonText: t('submit'),
@@ -83,20 +86,18 @@ class AppStore {
     }
 
     onBackspacePress = () => {
-        this.guesses[this.currentRow] = this.guesses[this.currentRow].slice(0, -1)
+        if (this.isWin || this.isLoss) return
+
+        this.currentDraft = this.currentDraft.slice(0, -1)
     }
 
     handleLetterInput = (letter: string) => {
         if (this.isWin || this.isLoss) return
 
-        if (!letter.match(this.letterRegex)) {
-            return
-        }
+        if (!letter.match(this.letterRegex)) return
 
-        const guess = this.guesses[this.currentRow]
-
-        if (guess.length < 5) {
-            this.guesses[this.currentRow] += letter.toLowerCase()
+        if (this.currentDraft.length < 5) {
+            this.currentDraft = this.currentDraft + letter.toLowerCase()
         }
     }
 

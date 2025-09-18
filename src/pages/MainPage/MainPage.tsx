@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react-lite'
 
-import { useEffect } from 'react'
+import { useCallback, useEffect } from 'react'
 
 import { useTranslation } from 'react-i18next'
 
@@ -20,7 +20,8 @@ export const MainPage = observer(() => {
     const { t } = useTranslation()
     const isMobile = useIsMobile()
 
-    const { init, isLoss, isWin, currentRow, correctWord, handleKeyup, guesses } = appStore
+    const { init, isLoss, isWin, currentRow, correctWord, handleKeyup, guesses, currentDraft } =
+        appStore
 
     useEffect(() => {
         init()
@@ -50,6 +51,10 @@ export const MainPage = observer(() => {
         }
     }, [isWin, isLoss])
 
+    const aboutClick = useCallback(() => {
+        messageStore.show(t('about_game'))
+    }, [t])
+
     return (
         <div className={styles.root}>
             <div className={styles.wrapper}>
@@ -61,9 +66,7 @@ export const MainPage = observer(() => {
                         <Button
                             size={ButtonSize.S}
                             backgroundColor={GameColors.Default}
-                            onClick={() => {
-                                messageStore.show(t('about_game'))
-                            }}
+                            onClick={aboutClick}
                         >
                             {isMobile ? '?' : t('how_to_play')}
                         </Button>
@@ -73,15 +76,19 @@ export const MainPage = observer(() => {
                 <h1 className={styles.title}>{t('title')}</h1>
 
                 <div className={styles.rows} aria-label={t('rows')}>
-                    {guesses.map((_, i) => (
-                        <Row
-                            key={i}
-                            rowIndex={i}
-                            guess={guesses[i]}
-                            correctWord={correctWord}
-                            isRowAccepted={i < currentRow}
-                        />
-                    ))}
+                    {guesses.map((_, i) => {
+                        const guessValue = i === currentRow ? currentDraft : guesses[i]
+
+                        return (
+                            <Row
+                                key={i}
+                                rowIndex={i}
+                                guess={guessValue}
+                                correctWord={correctWord}
+                                isRowAccepted={i < currentRow}
+                            />
+                        )
+                    })}
                 </div>
 
                 <Keyboard />

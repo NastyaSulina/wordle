@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo, FC } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import styles from './Row.module.scss'
@@ -14,36 +14,34 @@ export type RowProps = {
     rowIndex: number
 }
 
-export const Row: React.FC<RowProps> = ({ guess = '', correctWord, isRowAccepted, rowIndex }) => {
+export const Row: FC<RowProps> = memo(({ guess = '', correctWord, isRowAccepted, rowIndex }) => {
     const { t } = useTranslation()
 
     return (
         <div className={styles.root} aria-label={t('row_number', { index: rowIndex + 1 })}>
-            {Array(5)
-                .fill('')
-                .map((_, i) => {
-                    const backgroundColor = isRowAccepted
-                        ? getLetterColor(guess, correctWord, i)
-                        : GameColors.Default
+            {Array.from({ length: 5 }).map((_, i) => {
+                const backgroundColor = isRowAccepted
+                    ? getLetterColor(guess, correctWord, i)
+                    : GameColors.Default
 
-                    const letterAriaLabel = getLetterAriaLabel(
-                        i,
-                        guess[i],
-                        isRowAccepted,
-                        backgroundColor,
-                    )
+                const letterAriaLabel = getLetterAriaLabel(
+                    i,
+                    guess[i],
+                    isRowAccepted,
+                    backgroundColor,
+                )
 
-                    return (
-                        <Letter
-                            key={i}
-                            letterIndex={i}
-                            word={guess}
-                            backgroundColor={backgroundColor}
-                            letterAriaLabel={letterAriaLabel}
-                            isAccepted={isRowAccepted}
-                        />
-                    )
-                })}
+                return (
+                    <Letter
+                        key={i}
+                        letterIndex={i}
+                        letter={guess[i]}
+                        backgroundColor={backgroundColor}
+                        letterAriaLabel={letterAriaLabel}
+                        isAccepted={isRowAccepted}
+                    />
+                )
+            })}
         </div>
     )
-}
+})
