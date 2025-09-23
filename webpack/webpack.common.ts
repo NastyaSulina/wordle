@@ -8,6 +8,7 @@ import rules from './rules/index'
 const config: webpack.Configuration = {
     entry: path.resolve(__dirname, '../src/app/appEntry.tsx'),
     output: {
+        publicPath: '/',
         filename: '[name].[contenthash].js',
         chunkFilename: '[name].[contenthash].js',
         path: path.resolve(__dirname, '../dist'),

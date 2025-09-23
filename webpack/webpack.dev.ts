@@ -26,9 +26,6 @@ const devConfig: DevConfig = merge(commonConfig as WebpackConfiguration, {
         port: 9000,
         historyApiFallback: true,
     },
-    output: {
-        publicPath: '/',
-    },
 })
 
 export default devConfig
