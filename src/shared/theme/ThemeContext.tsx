@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from 'react'
+import { createContext, useContext, useEffect, useMemo, useState } from 'react'
 
 export enum Theme {
     light = 'light',
@@ -45,11 +45,15 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         }
     }, [theme])
 
-    const setTheme = (newTheme: Theme) => {
-        setThemeState(newTheme)
-    }
+    const contextValue = useMemo(
+        () => ({
+            theme,
+            setTheme: setThemeState,
+        }),
+        [theme],
+    )
 
-    return <ThemeContext.Provider value={{ theme, setTheme }}>{children}</ThemeContext.Provider>
+    return <ThemeContext.Provider value={contextValue}>{children}</ThemeContext.Provider>
 }
 
 export const useTheme = () => useContext(ThemeContext)
