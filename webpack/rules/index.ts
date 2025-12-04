@@ -7,6 +7,9 @@ export default {
     htmlRules: {
         test: /\.html$/i,
         loader: 'html-loader',
+        options: {
+            sources: false,
+        },
     },
 
     // ts-scripts
@@ -65,7 +68,7 @@ export default {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
         type: 'asset/resource',
         generator: {
-            filename: 'fonts/[contenthash][ext]',
+            filename: 'fonts/[name][ext]',
         },
     },
 }

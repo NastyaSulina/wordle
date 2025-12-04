@@ -2,6 +2,7 @@ import webpack from 'webpack'
 
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import CopyWebpackPlugin from 'copy-webpack-plugin'
 
 import path from 'path'
 
@@ -17,5 +18,18 @@ export default {
     HtmlWebpackPlugin: new HtmlWebpackPlugin({
         template: path.resolve(__dirname, '../../index.html'),
         filename: 'index.html',
+    }),
+
+    CopyWebpackPlugin: new CopyWebpackPlugin({
+        patterns: [
+            {
+                from: path.resolve(__dirname, '../../public/meta/robots.txt'),
+                to: 'robots.txt',
+            },
+            {
+                from: path.resolve(__dirname, '../../public/favicon'),
+                to: '',
+            },
+        ],
     }),
 }

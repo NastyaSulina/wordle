@@ -9,6 +9,7 @@ const prodConfig: Configuration = merge(commonConfig as Configuration, {
     devtool: false,
     target: 'browserslist',
     optimization: {
+        minimize: true,
         splitChunks: {
             chunks: 'all',
         },

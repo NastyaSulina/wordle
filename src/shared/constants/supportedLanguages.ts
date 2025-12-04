@@ -1,5 +1,5 @@
-import ruWords from '../../../public/dictionaries/ru.json'
-import enWords from '../../../public/dictionaries/en.json'
+import ruWords from '../dictionaries/ru.json'
+import enWords from '../dictionaries/en.json'
 
 export enum LanguageCode {
     ru = 'ru',

@@ -31,7 +31,7 @@ const config: webpack.Configuration = {
             rules.cssRules,
         ],
     },
-    plugins: [plugins.HtmlWebpackPlugin, plugins.MiniCssExtractPlugin],
+    plugins: [plugins.HtmlWebpackPlugin, plugins.MiniCssExtractPlugin, plugins.CopyWebpackPlugin],
 }
 
 export default config
