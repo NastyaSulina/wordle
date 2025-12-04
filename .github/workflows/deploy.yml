@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy to imgrau VPS
 
 on:
     push:
@@ -6,13 +6,17 @@ on:
             - main
 
 permissions:
-    contents: write
-    pages: write
-    id-token: write
+    contents: read
+
+env:
+    WORDLE_HOST: ${{ secrets.WORDLE_SSH_HOST }}
+    WORDLE_USER: ${{ secrets.WORDLE_SSH_USER }}
+    WORDLE_PATH: ${{ secrets.WORDLE_DEPLOY_PATH }}
 
 jobs:
     build-and-deploy:
         runs-on: ubuntu-latest
+
         steps:
             - name: Checkout Repository
               uses: actions/checkout@v4
@@ -36,9 +40,17 @@ jobs:
             - name: Build
               run: pnpm build:prod
 
-            - name: Deploy
-              uses: JamesIves/github-pages-deploy-action@v4
-              with:
-                  folder: dist
-                  branch: gh-pages
-                  clean: true
+            - name: Setup SSH key
+              run: |
+                  mkdir -p ~/.ssh
+                  echo "${{ secrets.WORDLE_SSH_KEY }}" > ~/.ssh/id_ed25519
+                  chmod 600 ~/.ssh/id_ed25519
+                  ssh-keyscan -H "$WORDLE_HOST" >> ~/.ssh/known_hosts
+
+            - name: Deploy via rsync
+              run: |
+                  set -euo pipefail
+                  rsync -avz --delete \
+                    -e "ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=yes" \
+                    dist/ \
+                    "$WORDLE_USER@$WORDLE_HOST:$WORDLE_PATH/"

@@ -15,8 +15,7 @@ const root = createRoot(document.getElementById('root') as HTMLElement)
 root.render(
     <React.StrictMode>
         <ThemeProvider>
-            {/* For gh-pages */}
-            <BrowserRouter basename={process.env.NODE_ENV === 'production' ? '/wordle' : '/'}>
+            <BrowserRouter>
                 <Routing />
                 <Message />
             </BrowserRouter>
