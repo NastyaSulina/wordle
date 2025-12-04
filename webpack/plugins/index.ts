@@ -23,8 +23,8 @@ export default {
     CopyWebpackPlugin: new CopyWebpackPlugin({
         patterns: [
             {
-                from: path.resolve(__dirname, '../../public/meta/robots.txt'),
-                to: 'robots.txt',
+                from: path.resolve(__dirname, '../../public/meta'),
+                to: '',
             },
             {
                 from: path.resolve(__dirname, '../../public/favicon'),
