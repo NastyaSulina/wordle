@@ -5,6 +5,7 @@ import { messageStore } from '../features/Message'
 import i18n from '../../i18n'
 
 import { KeyboardKeys, LanguageCode, SUPPORTED_LANGUAGES } from '@/shared/constants'
+import { track } from '@/shared/metrics'
 
 class AppStore {
     correctWord: string = ''
@@ -12,6 +13,7 @@ class AppStore {
     currentRow: number = 0
     language: LanguageCode = i18n.language as LanguageCode
     currentDraft: string = ''
+    hasStarted: boolean = false
 
     constructor() {
         makeAutoObservable(this)
@@ -65,12 +67,18 @@ class AppStore {
         this.guesses = new Array(6).fill('')
         this.currentRow = 0
         this.currentDraft = ''
+        this.hasStarted = false
     }
 
     submitGuess = () => {
         const guess = this.currentDraft
 
         if (guess.length === 5 && this.words.includes(guess)) {
+            if (!this.hasStarted) {
+                track('first_submit')
+                this.hasStarted = true
+            }
+
             this.guesses[this.currentRow] = guess
             this.currentRow += 1
             this.currentDraft = ''

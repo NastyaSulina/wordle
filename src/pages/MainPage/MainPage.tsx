@@ -15,6 +15,7 @@ import { LanguageSelector } from '@/features/LanguageSelector'
 import { GameColors } from '@/shared/constants'
 import { ThemeSelector } from '@/features/ThemeSelector'
 import { useIsMobile } from '@/shared/hooks'
+import { track } from '@/shared/metrics'
 
 export const MainPage = observer(() => {
     const { t } = useTranslation()
@@ -48,6 +49,9 @@ export const MainPage = observer(() => {
                     onClose: init,
                 },
             )
+
+            if (isWin) track('game_success')
+            else track('game_fail')
         }
     }, [isWin, isLoss])
 
